@@ -2,7 +2,57 @@
 	"$schema": "https://schemas.wp.org/trunk/theme.json",
 	"version": 3,
 	"settings": {
-		"appearanceTools": true
+		"appearanceTools": true,
+		"color": {
+			"palette": [
+				{
+					"slug": "brand-orange",
+					"color": "#ff7f24",
+					"name": "Brand Orange"
+				},
+				{
+					"slug": "black",
+					"color": "#000000",
+					"name": "Black"
+				},
+				{
+					"slug": "white",
+					"color": "#FFFFFF",
+					"name": "White"
+				}
+			]
+		},
+		"typography": {
+			"fontFamilies": [
+				{
+					"fontFamily": "\"Playfair Display\", serif",
+					"name": "Playfair Display",
+					"slug": "playfair-display",
+					"fontFace": [
+						{
+							"fontFamily": "Playfair Display",
+							"fontStyle": "normal",
+							"fontWeight": "400 900",
+							"src": [
+								"file:./assets/fonts/nuFiD-vYSZviVYUb_rj3ij__anPXDTzYgA.woff2"
+							]
+						},
+						{
+							"fontFamily": "Playfair Display",
+							"fontStyle": "italic",
+							"fontWeight": "400 900",
+							"src": [
+								"file:./assets/fonts/nuFkD-vYSZviVYUb_rj3ij__anPXDTnogkk7.woff2"
+							]
+						}
+					]
+				}
+			]
+		}
 	},
-	"styles": {}
+	"styles": {
+		"typography": {
+			"fontFamily": "var(--wp--preset--font-family--playfair-display)"
+		}
+	}
 }
