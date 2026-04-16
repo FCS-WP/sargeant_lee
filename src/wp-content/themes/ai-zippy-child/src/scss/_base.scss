@@ -1,0 +1,35 @@
+@use "variables" as *;
+
+%button {
+  @include transition((color, background-color));
+
+  font-family: var(--wp--preset--font-family--playfair-display);
+  background-color: var(--wp--preset--color--brand-orange, #ff7f24);
+  color: var(--wp--preset--color--white, #fff);
+  font-size: var(--wp--preset--font-size--normal);
+  cursor: pointer;
+  padding: 12px 30px;
+  font-weight: bold;
+
+  &:hover {
+    color: var(--wp--preset--color--black, #000000);
+    background-color: var(--wp--preset--color--white, #ffffff);
+  }
+}
+
+%input {
+  @include transition((color, border-color));
+  
+  font-family: var(--wp--preset--font-family--playfair-display);
+  background-color: var(--wp--preset--color--black, #000000);
+  color: var(--wp--preset--color--white, #fff);
+  border: 1px solid var(--wp--preset--color--white, #fff);
+  font-size: var(--wp--preset--font-size--normal);
+  padding: 11px 20px;
+
+  &:focus,
+  &:hover {
+    border-color: var(--wp--preset--color--brand-orange, #ff7f24);
+    color: var(--wp--preset--color--brand-orange, #ff7f24);
+  }
+}

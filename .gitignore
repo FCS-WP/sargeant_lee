@@ -7,6 +7,7 @@ yarn.lock
 src/wp-content/themes/ai-zippy/assets/dist
 src/wp-content/themes/ai-zippy/assets/blocks
 src/wp-content/themes/ai-zippy-child/assets/dist
+src/wp-content/themes/ai-zippy-child/assets/blocks
 
 # Environment
 .env

@@ -6,9 +6,12 @@
 	"description": "AI Zippy - WordPress FSE Theme + WooCommerce",
 	"author": "Zippy <dev@zippy.sg>",
 	"scripts": {
-		"dev": "concurrently \"NODE_ENV=development vite build\" \"wp-scripts start --webpack-src-dir=src/wp-content/themes/ai-zippy/src/blocks --output-path=src/wp-content/themes/ai-zippy/assets/blocks\" \"node bs.config.js\"",
-		"build": "vite build && wp-scripts build --webpack-src-dir=src/wp-content/themes/ai-zippy/src/blocks --output-path=src/wp-content/themes/ai-zippy/assets/blocks",
-		"build:blocks": "wp-scripts build --webpack-src-dir=src/wp-content/themes/ai-zippy/src/blocks --output-path=src/wp-content/themes/ai-zippy/assets/blocks"
+		"dev": "concurrently \"NODE_ENV=development vite build\" \"NODE_ENV=development vite build --config vite.child.config.js\" \"yarn start:blocks\" \"yarn start:child-blocks\" \"node bs.config.js\"",
+		"build": "vite build && vite build --config vite.child.config.js && yarn build:blocks && yarn build:child-blocks",
+		"build:blocks": "wp-scripts build --webpack-src-dir=src/wp-content/themes/ai-zippy/src/blocks --output-path=src/wp-content/themes/ai-zippy/assets/blocks",
+		"build:child-blocks": "wp-scripts build --webpack-src-dir=src/wp-content/themes/ai-zippy-child/src/blocks --output-path=src/wp-content/themes/ai-zippy-child/assets/blocks",
+		"start:child-blocks": "wp-scripts start --webpack-src-dir=src/wp-content/themes/ai-zippy-child/src/blocks --output-path=src/wp-content/themes/ai-zippy-child/assets/blocks",
+		"start:blocks": "wp-scripts start --webpack-src-dir=src/wp-content/themes/ai-zippy/src/blocks --output-path=src/wp-content/themes/ai-zippy/assets/blocks"
 	},
 	"devDependencies": {
 		"@vitejs/plugin-react": "^4.3.4",

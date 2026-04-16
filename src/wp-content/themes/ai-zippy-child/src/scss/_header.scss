@@ -1,0 +1,40 @@
+@use "variables" as *;
+
+// Custom cart icon
+.wc-block-mini-cart__quantity-badge {
+	width: 24px;
+	height: 24px;
+	background-image: url("/wp-content/themes/ai-zippy-child/assets/images/cart.png");
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
+
+	// Hide the default SVG
+	svg {
+		display: none;
+	}
+}
+
+.wc-block-mini-cart__badge {
+	background-color: var(--wp--preset--color--white, #ffffff) !important;
+	color: var(--wp--preset--color--brand-black, #000000) !important;
+}
+
+.custom-logo-link {
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.wp-block-navigation .wp-block-navigation-item__label {
+  @include transition(color);
+
+  font-weight: bold;
+
+  &:hover {
+    color: var(--wp--preset--color--brand-orange, #ff7f24);
+  }
+}
+
+.wp-block-navigation .current-menu-item .wp-block-navigation-item__label {
+  color: var(--wp--preset--color--brand-orange, #ff7f24);
+}

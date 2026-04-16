@@ -1,0 +1,8 @@
+// ---- DESIGN TOKENS ----
+$transition-speed: 0.3s;
+$transition-ease: cubic-bezier(0.4, 0, 0.2, 1);
+
+// ---- UTILITY MIXINS ----
+@mixin transition($props: all) {
+  transition: $props $transition-speed $transition-ease;
+}

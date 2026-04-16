@@ -1,0 +1,39 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "ai-zippy-child/header-search",
+	"version": "1.0.0",
+	"title": "Header Search",
+	"category": "ai-zippy",
+	"icon": "search",
+	"description": "Header search trigger with modal search form.",
+	"supports": {
+		"html": false
+	},
+	"attributes": {
+		"placeholder": {
+			"type": "string",
+			"default": "Search..."
+		},
+		"buttonLabel": {
+			"type": "string",
+			"default": "Open search"
+		},
+		"iconUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"iconId": {
+			"type": "number"
+		},
+		"modalTitle": {
+			"type": "string",
+			"default": "Search the site"
+		}
+	},
+	"textdomain": "ai-zippy-child",
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css",
+	"viewScript": "file:./view.js",
+	"render": "file:./render.php"
+}

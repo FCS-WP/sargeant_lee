@@ -14,16 +14,52 @@ defined('ABSPATH') || exit;
  */
 function ai_zippy_child_enqueue_assets(): void
 {
-    // Child theme custom styles (only if file exists)
-    $child_css = get_stylesheet_directory() . '/assets/dist/css/style.css';
+    // Enqueue child theme Vite-built style
+    // Uses child theme's own manifest at assets/dist/.vite/manifest.json
+    $manifest_path = get_stylesheet_directory() . '/assets/dist/.vite/manifest.json';
 
-    if (file_exists($child_css)) {
+    if (!file_exists($manifest_path)) {
+        return;
+    }
+
+    $manifest = json_decode(file_get_contents($manifest_path), true);
+    $entry = 'src/wp-content/themes/ai-zippy-child/src/scss/style.scss';
+
+    if (empty($manifest[$entry])) {
+        return;
+    }
+
+    $asset = $manifest[$entry];
+    $dist_uri = get_stylesheet_directory_uri() . '/assets/dist';
+
+    // CSS-only entry
+    if (!empty($asset['file']) && str_ends_with($asset['file'], '.css')) {
+        $file_path = get_stylesheet_directory() . '/assets/dist/' . $asset['file'];
+        $version = file_exists($file_path) ? filemtime($file_path) : wp_get_theme()->get('Version');
+
         wp_enqueue_style(
             'ai-zippy-child-style',
-            get_stylesheet_directory_uri() . '/assets/dist/css/style.css',
+            $dist_uri . '/' . $asset['file'],
             ['ai-zippy-theme-css-0'],
-            filemtime($child_css)
+            $version
         );
     }
 }
 add_action('wp_enqueue_scripts', 'ai_zippy_child_enqueue_assets', 20);
+
+/**
+ * Register child theme custom blocks from built assets.
+ */
+function ai_zippy_child_register_blocks(): void
+{
+    $blocks_dir = get_stylesheet_directory() . '/assets/blocks';
+
+    if (!is_dir($blocks_dir)) {
+        return;
+    }
+
+    foreach (glob($blocks_dir . '/*/block.json') as $block_json) {
+        register_block_type(dirname($block_json));
+    }
+}
+add_action('init', 'ai_zippy_child_register_blocks');
