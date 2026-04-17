@@ -1,0 +1,150 @@
+@use "../../scss/variables" as *;
+@use "../../scss/base" as *;
+
+// ---- Block wrapper ----
+
+.tm {
+  position: relative;
+  padding-top: var(--tm-pt, 80px);
+  padding-bottom: var(--tm-pb, 80px);
+
+  @media (max-width: 768px) {
+    padding-top: 48px;
+    padding-bottom: 48px;
+  }
+}
+
+// ---- Background image (same bleed pattern as outlet-cards) ----
+
+.tm__bg {
+  position: absolute;
+  width: 100vw;
+  height: 100%;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  background-image: var(--tm-bg);
+  background-color: $black;
+  background-size: cover;
+  background-position: center;
+  z-index: 0;
+}
+
+// ---- Inner container ----
+
+.tm__inner {
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 60px;
+}
+
+// ---- Section heading ----
+
+.tm__heading {
+  margin: 0;
+  color: $white;
+  font-family: $playfair;
+  font-size: $massive;
+  font-weight: 600;
+  text-align: center;
+
+  @media (max-width: 768px) {
+    font-size: $x-large;
+  }
+}
+
+// ---- Cards grid ----
+
+.tm__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  width: 100%;
+
+  @media (max-width: 1024px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 600px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+// ---- Individual card ----
+
+.tm__card {
+  @include image-shadow;
+
+  background-color: $black;
+  border-radius: 8px;
+  padding: 32px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+// ---- Quote group (icon + text) ----
+
+.tm__card-quote {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex-grow: 1;
+}
+
+// ---- Footer group (author + stars) ----
+
+.tm__card-footer {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+// ---- Opening quote icon ----
+
+.tm__quote-icon {
+  margin-top: 30px;
+  font-size: 84px;
+  line-height: 0;
+  color: $brand-orange;
+  display: block;
+}
+
+// ---- Quote text ----
+
+.tm__quote {
+  margin: 0;
+  color: $white;
+  font-size: $medium;
+  line-height: 1.7;
+  flex-grow: 1;
+}
+
+// ---- Author name ----
+
+.tm__author {
+  margin: 0;
+  color: $white;
+  font-size: $medium;
+}
+
+// ---- Star rating ----
+
+.tm__stars {
+  display: flex;
+  gap: 4px;
+}
+
+.tm__star {
+  font-size: 20px;
+  color: rgba(255, 255, 255, 0.2);
+
+  &--on {
+    color: $brand-orange;
+  }
+}
