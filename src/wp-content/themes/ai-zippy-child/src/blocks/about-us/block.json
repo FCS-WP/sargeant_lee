@@ -1,0 +1,55 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "ai-zippy-child/about-us",
+	"version": "1.0.0",
+	"title": "About Us",
+	"category": "ai-zippy",
+	"icon": "info",
+	"description": "Two-column about section with stacked images on the left and text content on the right.",
+	"supports": {
+		"html": false
+	},
+	"attributes": {
+		"eyebrow": {
+			"type": "string",
+			"default": "About Us"
+		},
+		"heading": {
+			"type": "string",
+			"default": "Our Story"
+		},
+		"content": {
+			"type": "string",
+			"default": ""
+		},
+		"buttonLabel": {
+			"type": "string",
+			"default": "Read More"
+		},
+		"buttonUrl": {
+			"type": "string",
+			"default": "#"
+		},
+		"image1Url": {
+			"type": "string",
+			"default": ""
+		},
+		"image1Id": {
+			"type": "number",
+			"default": 0
+		},
+		"image2Url": {
+			"type": "string",
+			"default": ""
+		},
+		"image2Id": {
+			"type": "number",
+			"default": 0
+		}
+	},
+	"textdomain": "ai-zippy-child",
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css",
+	"render": "file:./render.php"
+}

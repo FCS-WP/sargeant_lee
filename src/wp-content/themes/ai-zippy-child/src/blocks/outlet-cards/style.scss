@@ -45,6 +45,10 @@
   aspect-ratio: 1 / 1;
   background-color: $black;
   overflow: hidden;
+
+  @media (max-width: 768px) {
+    aspect-ratio: 1 / 1.5;
+  }
 }
 
 // ---- Background image ----
@@ -122,6 +126,10 @@
   font-weight: 600;
 
   @media (max-width: 768px) {
+    font-size: $x-large;
+  }
+
+  @media (max-width: 400px) {
     font-size: $large;
   }
 }

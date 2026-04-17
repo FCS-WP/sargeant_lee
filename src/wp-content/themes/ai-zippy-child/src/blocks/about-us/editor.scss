@@ -1,0 +1,8 @@
+// Editor-only overrides for about-us block.
+
+.wp-block-ai-zippy-child-about-us {
+  // Ensure images column has visible height in editor
+  .au__images {
+    min-height: 400px;
+  }
+}
