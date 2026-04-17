@@ -1,6 +1,6 @@
 @use "variables" as *;
 
-%button {
+@mixin button {
   @include transition((color, background-color));
 
   font-family: $playfair;
@@ -17,7 +17,7 @@
   }
 }
 
-%input {
+@mixin input {
   @include transition((color, border-color));
   
   font-family: $playfair;

@@ -19,14 +19,19 @@ browserSync.create().init({
 		`${themeDir}/assets/dist/css/**/*.css`,
 		`${childDir}/assets/dist/css/**/*.css`,
 
-		// Full reload on JS, PHP, HTML changes
+		// Full reload on JS, PHP, HTML, block changes
 		{
 			match: [
 				`${themeDir}/assets/dist/js/**/*.js`,
+				`${themeDir}/assets/blocks/**/*.js`,
+				`${themeDir}/assets/blocks/**/*.css`,
 				`${themeDir}/**/*.php`,
 				`${themeDir}/templates/**/*.html`,
 				`${themeDir}/parts/**/*.html`,
 				`${themeDir}/patterns/**/*.php`,
+				`${childDir}/assets/dist/js/**/*.js`,
+				`${childDir}/assets/blocks/**/*.js`,
+				`${childDir}/assets/blocks/**/*.css`,
 				`${childDir}/**/*.php`,
 				`${childDir}/templates/**/*.html`,
 				`${childDir}/parts/**/*.html`,
