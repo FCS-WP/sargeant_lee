@@ -1,0 +1,24 @@
+@use "variables" as *;
+
+.footer-columns {
+  gap: 11.4rem;
+
+  .wp-block-social-links {
+    gap: 1rem;
+  }
+
+  .wp-block-social-link:hover {
+    transform: none;
+  }
+
+  .wp-block-social-link-anchor {
+    @include transition((color, background-color));
+
+    overflow: hidden;
+    border-radius: 100%;
+
+    &:hover {
+      background-color: $white;
+    }
+  }
+}
