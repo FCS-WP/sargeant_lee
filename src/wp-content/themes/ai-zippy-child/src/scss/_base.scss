@@ -34,6 +34,18 @@
   }
 }
 
+@mixin image-hover {
+  @include transition((transform));
+
+  &:hover {
+    transform: scale(1.06);
+  }
+}
+
+@mixin image-shadow {
+  filter: drop-shadow(-8px 8px 24px rgba(0, 0, 0, 0.6));
+}
+
 body {
   overflow-x: hidden;
 }

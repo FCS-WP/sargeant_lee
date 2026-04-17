@@ -54,6 +54,8 @@
 }
 
 .au__img-front {
+  @include image-shadow;
+  
   position: absolute;
   bottom: 0;
   right: 0;

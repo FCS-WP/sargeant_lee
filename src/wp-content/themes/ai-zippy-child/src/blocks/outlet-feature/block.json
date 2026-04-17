@@ -1,0 +1,64 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "ai-zippy-child/outlet-feature",
+	"version": "1.0.0",
+	"title": "Outlet Feature",
+	"category": "ai-zippy",
+	"icon": "align-pull-right",
+	"description": "Two-column outlet feature: text on one side, two overlapping images on the other. Supports layout flip and optional orange bottom border.",
+	"supports": {
+		"html": false
+	},
+	"attributes": {
+		"eyebrow": {
+			"type": "string",
+			"default": "Western"
+		},
+		"heading": {
+			"type": "string",
+			"default": "Outlet Name"
+		},
+		"content": {
+			"type": "string",
+			"default": ""
+		},
+		"image1Url": {
+			"type": "string",
+			"default": ""
+		},
+		"image1Id": {
+			"type": "number",
+			"default": 0
+		},
+		"image2Url": {
+			"type": "string",
+			"default": ""
+		},
+		"image2Id": {
+			"type": "number",
+			"default": 0
+		},
+		"layout": {
+			"type": "string",
+			"default": "text-left",
+			"enum": ["text-left", "text-right"]
+		},
+		"showBorder": {
+			"type": "boolean",
+			"default": true
+		},
+		"paddingTop": {
+			"type": "string",
+			"default": "80px"
+		},
+		"paddingBottom": {
+			"type": "string",
+			"default": "80px"
+		}
+	},
+	"textdomain": "ai-zippy-child",
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css",
+	"render": "file:./render.php"
+}

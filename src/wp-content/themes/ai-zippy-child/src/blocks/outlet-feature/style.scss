@@ -1,0 +1,185 @@
+@use "../../scss/variables" as *;
+@use "../../scss/base" as *;
+
+// ---- Block wrapper ----
+
+.of {
+  background-color: $black;
+  padding-top: var(--of-pt, 80px);
+  padding-bottom: var(--of-pb, 80px);
+  position: relative;
+
+  // Orange bottom border (opt-in)
+  &--border {
+    border-bottom: 2px solid $brand-orange;
+  }
+
+  @media (max-width: 768px) {
+    padding-top: 48px;
+    padding-bottom: 48px;
+  }
+}
+
+// ---- Inner two-column grid ----
+
+.of__inner {
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+  align-items: center;
+  gap: 80px;
+  max-width: 1200px;
+  margin: 0 auto;
+
+  // When images come first (left), flip column widths: 3fr images | 2fr text
+  .of--text-right & {
+    grid-template-columns: 3fr 2fr;
+  }
+}
+
+// Mobile must come after the modifier so it wins the specificity race
+@media (max-width: 768px) {
+  .of__inner,
+  .of--text-right .of__inner {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+// ---- Images column ----
+// Default (text-left): primary top-right, secondary bottom-left
+// Flipped (text-right): primary top-left, secondary bottom-right
+
+.of__images {
+  position: relative;
+  min-height: 480px;
+
+  @media (max-width: 768px) {
+    min-height: 300px;
+  }
+}
+
+// Primary: top-right by default
+.of__img-primary {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 0;
+  width: 85%;
+  z-index: 1;
+
+  .of--text-right & {
+    right: auto;
+    left: 0;
+  }
+}
+
+// Secondary: bottom-left by default
+.of__img-secondary {
+  @include image-shadow;
+
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 0;
+  width: 45%;
+  z-index: 2;
+
+  .of--text-right & {
+    left: auto;
+    right: 0;
+  }
+}
+
+.of__img {
+  @include image-hover;
+  
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+
+  .of__img-primary & {
+    aspect-ratio: 4 / 3;
+  }
+
+  .of__img-secondary & {
+    aspect-ratio: 1 / 1;
+  }
+}
+
+.of__img-placeholder {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  background: rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.3);
+  font-size: $small;
+}
+
+// ---- Text column ----
+
+.of__content {
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+}
+
+// ---- Eyebrow ----
+
+.of__eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.of__eyebrow-line {
+  display: block;
+  width: 60px;
+  height: 1px;
+  background-color: $brand-orange;
+  flex-shrink: 0;
+}
+
+.of__eyebrow-text {
+  font-size: $medium;
+  font-weight: 400;
+  text-transform: uppercase;
+  color: $brand-orange;
+}
+
+// ---- Header (eyebrow + heading grouped) ----
+
+.of__header {
+  display: flex;
+  flex-direction: column;
+}
+
+// ---- Heading ----
+
+.of__heading {
+  margin: 0;
+  color: $white;
+  font-size: $x-large;
+  font-weight: 600;
+  line-height: 1.15;
+
+  @media (max-width: 768px) {
+    font-size: $large;
+  }
+}
+
+// ---- Body text ----
+
+.of__body {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  p {
+    margin: 0;
+    color: $white;
+    font-size: $medium;
+  }
+}
