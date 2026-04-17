@@ -1,0 +1,57 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "ai-zippy-child/best-sellers",
+	"version": "1.0.0",
+	"title": "Best Sellers Carousel",
+	"category": "ai-zippy",
+	"icon": "slides",
+	"description": "A full-width image carousel of best-selling WooCommerce products, sorted by popularity.",
+	"supports": {
+		"html": false
+	},
+	"attributes": {
+		"mode": {
+			"type": "string",
+			"default": "auto",
+			"enum": ["auto", "manual"]
+		},
+		"heading": {
+			"type": "string",
+			"default": "Our Best Sellers"
+		},
+		"items": {
+			"type": "array",
+			"default": [
+				{ "imageUrl": "", "imageId": 0, "title": "", "linkUrl": "#", "newTab": false },
+				{ "imageUrl": "", "imageId": 0, "title": "", "linkUrl": "#", "newTab": false },
+				{ "imageUrl": "", "imageId": 0, "title": "", "linkUrl": "#", "newTab": false }
+			]
+		},
+		"limit": {
+			"type": "number",
+			"default": 10
+		},
+		"slidesPerView": {
+			"type": "number",
+			"default": 3
+		},
+		"loop": {
+			"type": "boolean",
+			"default": true
+		},
+		"autoplay": {
+			"type": "boolean",
+			"default": false
+		},
+		"autoplayDelay": {
+			"type": "number",
+			"default": 4000
+		}
+	},
+	"textdomain": "ai-zippy-child",
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css",
+	"viewScript": "file:./view.js",
+	"render": "file:./render.php"
+}

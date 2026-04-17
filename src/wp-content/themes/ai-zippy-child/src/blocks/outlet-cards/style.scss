@@ -46,6 +46,12 @@
   background-color: $black;
   overflow: hidden;
 
+  &:hover {
+    .oc__bg {
+      transform: scale(1.06);
+    }
+  }
+
   @media (max-width: 768px) {
     aspect-ratio: 1 / 1.5;
   }
@@ -54,6 +60,8 @@
 // ---- Background image ----
 
 .oc__bg {
+  @include transition((transform));
+
   position: absolute;
   inset: 0;
   width: 100%;
@@ -68,7 +76,7 @@
 .oc__overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.45);
+  background: rgba(0, 0, 0, 0.6);
 }
 
 // ---- Logo (top-center, inside body) ----

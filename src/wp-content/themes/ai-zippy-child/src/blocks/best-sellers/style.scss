@@ -1,0 +1,179 @@
+@use "../../scss/variables" as *;
+@use "../../scss/base" as *;
+
+// ---- Block wrapper ----
+
+.bs {
+  background-color: $black;
+  padding: 60px 0;
+
+  @media (max-width: 768px) {
+    padding: 40px 0;
+  }
+}
+
+// ---- Header row (heading + nav) ----
+
+.bs__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;
+  margin-bottom: 40px;
+
+  @media (max-width: 768px) {
+    padding: 0;
+    margin-bottom: 24px;
+  }
+}
+
+.bs__heading {
+  margin: 0;
+  color: $white;
+  font-size: $large;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-family: $playfair;
+}
+
+// ---- Navigation buttons ----
+
+.bs__nav {
+  display: flex;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.bs__nav-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 2px solid $brand-orange;
+  background: transparent;
+  color: $brand-orange;
+  cursor: pointer;
+  @include transition((color, background-color, border-color));
+
+  svg {
+    display: block;
+    flex-shrink: 0;
+  }
+
+  &:hover,
+  &.bs__nav-next {
+    background-color: $brand-orange;
+    color: $white;
+  }
+
+  // Prev button: outline only by default, matches mockup
+  &.bs__nav-prev {
+    background: transparent;
+    color: $brand-orange;
+
+    &:hover {
+      background-color: $brand-orange;
+      color: $white;
+    }
+  }
+
+  // Disable state set by Swiper when loop=false and at edge
+  &.swiper-button-disabled {
+    opacity: 0.35;
+    cursor: default;
+    pointer-events: none;
+  }
+}
+
+// ---- Swiper container ----
+
+.bs__swiper {
+  margin-left: 40px !important;
+
+  @media (max-width: 768px) {
+    margin-left: 0 !important;
+  }
+}
+
+.bs__slide-name {
+  color: $white;
+  font-size: $medium;
+  text-align: center;
+
+  // Mobile: shown below image
+  &--mobile {
+    display: none;
+    margin: 12px 0 0;
+
+    @media (max-width: 768px) {
+      display: block;
+    }
+  }
+
+  // Desktop: shown inside image on hover
+  &--hover {
+    position: absolute;
+    bottom: 50%;
+    left: 0;
+    right: 0;
+    padding: 0 12px;
+    opacity: 0;
+    transform: translateY(-50%);
+    @include transition((opacity, transform));
+    z-index: 2;
+
+    @media (max-width: 768px) {
+      display: none;
+    }
+  }
+}
+
+// ---- Slide ----
+
+.bs__slide {
+  // Let the image define the height
+}
+
+.bs__slide-link {
+  display: block;
+  position: relative;
+  overflow: hidden;
+
+  // Dark overlay (hidden by default)
+  .bs__slide-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0);
+    @include transition(background);
+    z-index: 1;
+  }
+
+  &:hover {
+    .bs__slide-img {
+      transform: scale(1.06);
+    }
+
+    .bs__slide-overlay {
+      background: rgba(255, 127, 36, 0.9);
+    }
+
+    .bs__slide-name--hover {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+.bs__slide-img {
+  display: block;
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
+  @include transition(transform);
+
+  @media (max-width: 768px) {
+    height: 260px;
+  }
+}

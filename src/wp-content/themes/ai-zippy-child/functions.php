@@ -63,3 +63,30 @@ function ai_zippy_child_register_blocks(): void
     }
 }
 add_action('init', 'ai_zippy_child_register_blocks');
+
+/**
+ * Enqueue Swiper UMD bundle when the best-sellers block is on the page.
+ * Using the UMD build avoids webpack treating the CDN URL as a local chunk.
+ */
+function ai_zippy_child_enqueue_swiper(): void
+{
+    if (!has_block('ai-zippy-child/best-sellers')) {
+        return;
+    }
+
+    wp_enqueue_script(
+        'swiper-bundle',
+        'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js',
+        [],
+        null,
+        true // footer
+    );
+
+    wp_enqueue_style(
+        'swiper-bundle-css',
+        'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css',
+        [],
+        null
+    );
+}
+add_action('wp_enqueue_scripts', 'ai_zippy_child_enqueue_swiper', 5);

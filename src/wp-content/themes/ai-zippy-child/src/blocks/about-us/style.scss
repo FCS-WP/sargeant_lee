@@ -60,10 +60,16 @@
 }
 
 .au__img {
+  @include transition((transform));
+
   display: block;
   width: 100%;
   height: auto;
   object-fit: cover;
+
+  &:hover {
+    transform: scale(1.06);
+  }
 }
 
 .au__img-placeholder {
@@ -113,13 +119,9 @@
 .au__heading {
   margin: 0;
   color: $white;
-  font-size: $x-large;
+  font-size: $large;
   font-weight: 600;
   text-transform: uppercase;
-
-  @media (max-width: 768px) {
-    font-size: $large;
-  }
 }
 
 // ---- Body text ----

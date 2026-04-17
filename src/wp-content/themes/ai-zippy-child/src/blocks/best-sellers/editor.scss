@@ -1,0 +1,61 @@
+// Editor-only overrides for best-sellers block.
+
+.wp-block-ai-zippy-child-best-sellers {
+  background-color: #000;
+  padding: 40px;
+
+  .bs__editor-notice {
+    color: rgba(255, 255, 255, 0.5);
+    font-style: italic;
+    text-align: center;
+    padding: 40px 0;
+    margin: 0;
+    border: 1px dashed rgba(255, 255, 255, 0.15);
+  }
+
+  .bs__heading {
+    color: #fff;
+  }
+
+  .bs__nav-btn {
+    pointer-events: none;
+  }
+
+  // Manual mode preview grid
+  .bs__editor-items {
+    display: flex;
+    gap: 16px;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding-bottom: 8px;
+  }
+
+  .bs__editor-item {
+    flex: 0 0 220px;
+  }
+
+  .bs__editor-item-img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+  }
+
+  .bs__editor-item-placeholder {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    background: rgba(255, 255, 255, 0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(255, 255, 255, 0.3);
+    font-size: 13px;
+  }
+
+  .bs__editor-item-title {
+    margin: 8px 0 0;
+    color: #fff;
+    font-size: 13px;
+    text-align: center;
+  }
+}
