@@ -1,3 +1,5 @@
+@use "sass:list";
+
 // ---- DESIGN TOKENS ----
 $transition-speed: 0.3s;
 $transition-ease: cubic-bezier(0.4, 0, 0.2, 1);
@@ -9,8 +11,16 @@ $small: var(--wp--preset--font-size--small, 13px);
 $medium: var(--wp--preset--font-size--medium, 16px);
 $large: var(--wp--preset--font-size--large, 36px);
 $x-large: var(--wp--preset--font-size--x-large, 42px);
+$massive: var(--wp--preset--font-size--custom-1, 56px);
+$border-radius: 8px;
 
 // ---- UTILITY MIXINS ----
 @mixin transition($props: all) {
-  transition: $props $transition-speed $transition-ease;
+  $result: ();
+
+  @each $prop in $props {
+    $result: list.append($result, #{$prop} $transition-speed $transition-ease, comma);
+  }
+
+  transition: $result;
 }

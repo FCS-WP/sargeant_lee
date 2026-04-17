@@ -1,0 +1,58 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "ai-zippy-child/outlet-cards",
+	"version": "1.0.0",
+	"title": "Outlet Cards",
+	"category": "ai-zippy",
+	"icon": "grid-view",
+	"description": "A two-column grid of outlet/brand cards with background image, logo, heading and CTA button.",
+	"supports": {
+		"html": false
+	},
+	"attributes": {
+		"bgUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"bgId": {
+			"type": "number",
+			"default": 0
+		},
+		"paddingTop": {
+			"type": "string",
+			"default": "60px"
+		},
+		"paddingBottom": {
+			"type": "string",
+			"default": "60px"
+		},
+		"cards": {
+			"type": "array",
+			"default": [
+				{
+					"imageUrl": "",
+					"imageId": 0,
+					"logoUrl": "",
+					"logoId": 0,
+					"heading": "Outlet Name",
+					"linkUrl": "#",
+					"linkLabel": "See More"
+				},
+				{
+					"imageUrl": "",
+					"imageId": 0,
+					"logoUrl": "",
+					"logoId": 0,
+					"heading": "Outlet Name",
+					"linkUrl": "#",
+					"linkLabel": "See More"
+				}
+			]
+		}
+	},
+	"textdomain": "ai-zippy-child",
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css",
+	"render": "file:./render.php"
+}

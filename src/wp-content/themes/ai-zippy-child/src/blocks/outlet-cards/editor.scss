@@ -1,0 +1,9 @@
+// Editor-only overrides for outlet-cards block.
+// Ensures the block preview is usable in the Gutenberg canvas.
+
+.wp-block-ai-zippy-child-outlet-cards {
+  // Prevent the block from collapsing in the editor when no image is set
+  .oc__card {
+    min-height: 300px;
+  }
+}

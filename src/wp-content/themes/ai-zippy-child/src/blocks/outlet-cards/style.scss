@@ -1,0 +1,137 @@
+@use "../../scss/variables" as *;
+@use "../../scss/base" as *;
+
+// ---- Block wrapper ----
+
+.oc {
+  position: relative;
+  padding-top: var(--oc-pt, 60px);
+  padding-bottom: var(--oc-pb, 60px);
+}
+
+// ---- Section background ----
+
+.oc__section-bg {
+  position: absolute;
+  width: 100vw;
+  height: calc(100% + 185px);
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  background-image: var(--oc-bg);
+  background-size: cover;
+  background-position: center;
+  z-index: -1;
+}
+
+// ---- Grid ----
+
+.oc__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 50px;
+  position: relative;
+  z-index: 1;
+
+  @media (max-width: 640px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+// ---- Card ----
+
+.oc__card {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  background-color: $black;
+  overflow: hidden;
+}
+
+// ---- Background image ----
+
+.oc__bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+// ---- Dark overlay ----
+
+.oc__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+}
+
+// ---- Logo (top-center, inside body) ----
+
+.oc__logo-wrap {
+  width: 90px;
+  height: 90px;
+  background: $white;
+  border-radius: 0 0 8px 8px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  flex-shrink: 0;
+}
+
+.oc__logo-placeholder {
+  width: 90px;
+  height: 90px;
+  flex-shrink: 0;
+}
+
+.oc__logo {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+// ---- Body (full-height, space-between) ----
+
+.oc__body {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  padding: 0 32px 70px;
+
+  @media (max-width: 768px) {
+    padding: 0 16px 16px;
+  }
+}
+
+// ---- Heading ----
+
+.oc__heading {
+  margin: 0;
+  color: $white;
+  font-size: $massive;
+  font-weight: 600;
+
+  @media (max-width: 768px) {
+    font-size: $large;
+  }
+}
+
+// ---- CTA button ----
+
+.oc__btn {
+  @include button;
+
+  display: inline-block;
+  text-decoration: none;
+  border: 0;
+}
