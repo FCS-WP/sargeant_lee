@@ -16,7 +16,7 @@ import {
 } from "@wordpress/components";
 
 export default function Edit({ attributes, setAttributes }) {
-	const { mode, heading, items, limit, slidesPerView, loop, autoplay, autoplayDelay } =
+	const { mode, heading, items, limit, slidesPerView, loop, autoplay, autoplayDelay, paddingTop, paddingBottom } =
 		attributes;
 
 	const blockProps = useBlockProps();
@@ -88,6 +88,18 @@ export default function Edit({ attributes, setAttributes }) {
 							step={500}
 						/>
 					)}
+					<TextControl
+						label={__("Padding top", "ai-zippy-child")}
+						value={paddingTop}
+						onChange={(value) => setAttributes({ paddingTop: value })}
+						help={__("CSS value e.g. 60px, 4rem", "ai-zippy-child")}
+					/>
+					<TextControl
+						label={__("Padding bottom", "ai-zippy-child")}
+						value={paddingBottom}
+						onChange={(value) => setAttributes({ paddingBottom: value })}
+						help={__("CSS value e.g. 60px, 4rem", "ai-zippy-child")}
+					/>
 				</PanelBody>
 
 				{/* ---- Auto mode settings ---- */}
@@ -182,7 +194,7 @@ export default function Edit({ attributes, setAttributes }) {
 			</InspectorControls>
 
 			{/* ---- Editor preview ---- */}
-			<div {...blockProps}>
+			<div {...blockProps} style={{ "--bs-pt": paddingTop, "--bs-pb": paddingBottom }}>
 				<div className="bs__header">
 					<h2 className="bs__heading">
 						{heading || __("Our Best Sellers", "ai-zippy-child")}

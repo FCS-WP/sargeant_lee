@@ -14,6 +14,8 @@ $slides_per_view = (int) ($attributes['slidesPerView'] ?? 3);
 $loop            = !empty($attributes['loop'])     ? true : false;
 $autoplay        = !empty($attributes['autoplay']) ? true : false;
 $autoplay_delay  = (int) ($attributes['autoplayDelay'] ?? 4000);
+$padding_top     = !empty($attributes['paddingTop'])    ? esc_attr($attributes['paddingTop'])    : '60px';
+$padding_bottom  = !empty($attributes['paddingBottom']) ? esc_attr($attributes['paddingBottom']) : '60px';
 
 $swiper_config = wp_json_encode([
     'slidesPerView' => $slides_per_view,
@@ -99,7 +101,7 @@ if (empty($slides)) {
     return;
 }
 ?>
-<div <?php echo get_block_wrapper_attributes(['class' => 'bs']); ?>
+<div <?php echo get_block_wrapper_attributes(['class' => 'bs', 'style' => '--bs-pt:' . $padding_top . ';--bs-pb:' . $padding_bottom . ';']); ?>
      data-swiper-config="<?php echo esc_attr($swiper_config); ?>">
 
     <div class="bs__header">

@@ -47,6 +47,14 @@
 		"autoplayDelay": {
 			"type": "number",
 			"default": 4000
+		},
+		"paddingTop": {
+			"type": "string",
+			"default": "60px"
+		},
+		"paddingBottom": {
+			"type": "string",
+			"default": "60px"
 		}
 	},
 	"textdomain": "ai-zippy-child",

@@ -46,6 +46,14 @@
 		"image2Id": {
 			"type": "number",
 			"default": 0
+		},
+		"paddingTop": {
+			"type": "string",
+			"default": "80px"
+		},
+		"paddingBottom": {
+			"type": "string",
+			"default": "80px"
 		}
 	},
 	"textdomain": "ai-zippy-child",

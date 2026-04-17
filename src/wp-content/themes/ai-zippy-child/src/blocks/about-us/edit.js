@@ -18,6 +18,8 @@ export default function Edit({ attributes, setAttributes }) {
 		image1Id,
 		image2Url,
 		image2Id,
+		paddingTop,
+		paddingBottom,
 	} = attributes;
 
 	const blockProps = useBlockProps();
@@ -99,11 +101,23 @@ export default function Edit({ attributes, setAttributes }) {
 						value={buttonUrl}
 						onChange={(value) => setAttributes({ buttonUrl: value })}
 					/>
+					<TextControl
+						label={__("Padding top", "ai-zippy-child")}
+						value={paddingTop}
+						onChange={(value) => setAttributes({ paddingTop: value })}
+						help={__("CSS value e.g. 80px, 6rem", "ai-zippy-child")}
+					/>
+					<TextControl
+						label={__("Padding bottom", "ai-zippy-child")}
+						value={paddingBottom}
+						onChange={(value) => setAttributes({ paddingBottom: value })}
+						help={__("CSS value e.g. 80px, 6rem", "ai-zippy-child")}
+					/>
 				</PanelBody>
 			</InspectorControls>
 
 			{/* Editor preview */}
-			<div {...blockProps}>
+			<div {...blockProps} style={{ "--au-pt": paddingTop, "--au-pb": paddingBottom }}>
 				<div className="au__inner">
 					{/* Left: stacked images */}
 					<div className="au__images">

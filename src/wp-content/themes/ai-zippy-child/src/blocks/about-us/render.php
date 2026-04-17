@@ -9,18 +9,20 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-$eyebrow      = !empty($attributes['eyebrow'])     ? esc_html($attributes['eyebrow'])     : '';
-$heading      = !empty($attributes['heading'])     ? esc_html($attributes['heading'])     : '';
-$content      = !empty($attributes['content'])     ? $attributes['content']               : '';
-$button_label = !empty($attributes['buttonLabel']) ? esc_html($attributes['buttonLabel']) : '';
-$button_url   = !empty($attributes['buttonUrl'])   ? esc_url($attributes['buttonUrl'])    : '#';
-$image1_url   = !empty($attributes['image1Url'])   ? esc_url($attributes['image1Url'])    : '';
-$image2_url   = !empty($attributes['image2Url'])   ? esc_url($attributes['image2Url'])    : '';
+$eyebrow        = !empty($attributes['eyebrow'])       ? esc_html($attributes['eyebrow'])       : '';
+$heading        = !empty($attributes['heading'])       ? esc_html($attributes['heading'])       : '';
+$content        = !empty($attributes['content'])       ? $attributes['content']                 : '';
+$button_label   = !empty($attributes['buttonLabel'])   ? esc_html($attributes['buttonLabel'])   : '';
+$button_url     = !empty($attributes['buttonUrl'])     ? esc_url($attributes['buttonUrl'])      : '#';
+$image1_url     = !empty($attributes['image1Url'])     ? esc_url($attributes['image1Url'])      : '';
+$image2_url     = !empty($attributes['image2Url'])     ? esc_url($attributes['image2Url'])      : '';
+$padding_top    = !empty($attributes['paddingTop'])    ? esc_attr($attributes['paddingTop'])    : '80px';
+$padding_bottom = !empty($attributes['paddingBottom']) ? esc_attr($attributes['paddingBottom']) : '80px';
 
 // Split content by blank lines into paragraphs
 $paragraphs = $content ? array_filter(preg_split('/\n{2,}/', $content)) : [];
 ?>
-<div <?php echo get_block_wrapper_attributes(['class' => 'au']); ?>>
+<div <?php echo get_block_wrapper_attributes(['class' => 'au', 'style' => '--au-pt:' . $padding_top . ';--au-pb:' . $padding_bottom . ';']); ?>>
     <div class="au__inner">
 
         <!-- Left: stacked images -->

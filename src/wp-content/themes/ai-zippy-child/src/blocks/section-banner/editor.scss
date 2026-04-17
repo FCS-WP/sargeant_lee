@@ -1,0 +1,9 @@
+// Editor-only overrides for section-banner block.
+
+.wp-block-ai-zippy-child-section-banner {
+  // Ensure the background div is visible in the editor
+  .sb__bg {
+    // Editor canvas clips overflow, so show a colour hint when no bg is set
+    background-color: rgba(255, 255, 255, 0.04);
+  }
+}

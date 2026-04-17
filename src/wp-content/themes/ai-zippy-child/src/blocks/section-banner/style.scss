@@ -1,0 +1,52 @@
+@use "../../scss/variables" as *;
+@use "../../scss/base" as *;
+
+// ---- Block wrapper ----
+
+.sb {
+  position: relative;
+  padding-top: var(--sb-pt, 100px);
+  padding-bottom: var(--sb-pb, 100px);
+  // Fallback background colour when no image is set
+  background-color: $black;
+}
+
+// ---- Background image — full-width bleed, same as outlet-cards ----
+
+.sb__bg {
+  position: absolute;
+  width: 100vw;
+  height: 100%;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  background-image: var(--sb-bg);
+  background-size: cover;
+  background-position: center;
+  z-index: 0;
+}
+
+// ---- Inner content ----
+
+.sb__inner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+// ---- Heading ----
+
+.sb__heading {
+  margin: 0;
+  color: $white;
+  font-family: $playfair;
+  font-size: $massive;
+  font-weight: 600;
+
+  @media (max-width: 768px) {
+    font-size: $x-large;
+  }
+}
