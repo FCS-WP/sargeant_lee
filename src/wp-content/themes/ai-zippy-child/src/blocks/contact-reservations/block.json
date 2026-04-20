@@ -1,0 +1,55 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "ai-zippy-child/contact-reservations",
+	"version": "1.0.0",
+	"title": "Contact & Reservations",
+	"category": "ai-zippy",
+	"icon": "email-alt",
+	"description": "Two-column section: outlet listing with reserve buttons on the left, enquiry form shortcode on the right.",
+	"supports": {
+		"html": false
+	},
+	"attributes": {
+		"eyebrow": {
+			"type": "string",
+			"default": "Ask us questions"
+		},
+		"heading": {
+			"type": "string",
+			"default": "Book an appointment with us to save time!"
+		},
+		"outlets": {
+			"type": "array",
+			"default": [
+				{
+					"name": "",
+					"contact": "",
+					"hours": "",
+					"reserveUrl": "#",
+					"reserveLabel": "Reserve Now"
+				}
+			]
+		},
+		"formHeading": {
+			"type": "string",
+			"default": "Send Us Your Enquiry"
+		},
+		"formShortcode": {
+			"type": "string",
+			"default": ""
+		},
+		"paddingTop": {
+			"type": "string",
+			"default": "80px"
+		},
+		"paddingBottom": {
+			"type": "string",
+			"default": "80px"
+		}
+	},
+	"textdomain": "ai-zippy-child",
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css",
+	"render": "file:./render.php"
+}

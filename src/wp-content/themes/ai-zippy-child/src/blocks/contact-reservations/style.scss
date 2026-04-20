@@ -1,0 +1,197 @@
+@use "../../scss/variables" as *;
+@use "../../scss/base" as *;
+
+// ---- Block wrapper ----
+
+.cr {
+  background-color: $black;
+  padding-top: var(--cr-pt, 80px);
+  padding-bottom: var(--cr-pb, 80px);
+
+  @media (max-width: 768px) {
+    padding-top: 48px;
+    padding-bottom: 48px;
+  }
+}
+
+// ---- Two-column inner ----
+
+.cr__inner {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 60px;
+  max-width: 1200px;
+  margin: 0 auto;
+
+  @media (max-width: 900px) {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+}
+
+// ============================================================
+// LEFT COLUMN
+// ============================================================
+
+.cr__left {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+// ---- Header: eyebrow + heading ----
+
+.cr__header {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.cr__eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.cr__eyebrow-line {
+  display: block;
+  width: 60px;
+  height: 1px;
+  background-color: $brand-orange;
+  flex-shrink: 0;
+}
+
+.cr__eyebrow-text {
+  font-size: $medium;
+  font-weight: 400;
+  text-transform: uppercase;
+  color: $brand-orange;
+}
+
+.cr__heading {
+  margin: 0;
+  color: $white;
+  font-size: $large;
+  font-weight: 700;
+  line-height: 1.2;
+
+  @media (max-width: 768px) {
+    font-size: $x-large;
+  }
+}
+
+// ---- Outlets list ----
+
+.cr__outlets {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.cr__outlet {
+  padding: 24px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+
+  &:first-child {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+}
+
+.cr__outlet-name {
+  margin: 0 0 16px;
+  color: $brand-orange;
+  font-size: $medium;
+  font-weight: 600;
+  // text-align: center;
+  font-size: 24px;
+}
+
+// Two-column sub-layout within each outlet
+.cr__outlet-body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  align-items: start;
+
+  @media (max-width: 480px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.cr__outlet-contact {
+  p {
+    margin: 0 0 4px;
+    color: $white;
+    font-size: $small;
+    line-height: 1.6;
+  }
+}
+
+.cr__outlet-right {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.cr__outlet-hours {
+  p {
+    margin: 0 0 4px;
+    color: $white;
+    font-size: $small;
+    line-height: 1.6;
+  }
+}
+
+.cr__reserve-btn {
+  @include button;
+  display: inline-block;
+}
+
+// ============================================================
+// RIGHT COLUMN
+// ============================================================
+
+.cr__right {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.cr__form-heading {
+  margin: 0;
+  color: $white;
+  font-size: $large;
+}
+
+.cr__form {
+  width: 100%;
+
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  textarea {
+    @include input;
+    max-width: 100%;
+    width: 100%;
+  }
+
+  input[type="submit"] {
+    @include button;
+    border: 0;
+  }
+
+  .wpcf7-not-valid-tip {
+    color: $brand-orange;
+    margin-top: 5px;
+    font-size: var(--wp--preset--font-size--small);
+  }
+
+  .wpcf7 form .wpcf7-response-output {
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    border-color: $brand-orange;
+    font-size: var(--wp--preset--font-size--small);
+  }
+}
