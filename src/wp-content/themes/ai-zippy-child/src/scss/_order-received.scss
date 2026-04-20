@@ -1,0 +1,37 @@
+@use "variables" as *;
+@use "base" as *;
+
+.az-thankyou__footer,
+.az-thankyou__card {
+  @include background-gradient;
+  @include image-shadow;
+}
+
+.az-thankyou__btn--primary {
+  @include button-styles;
+}
+
+.az-thankyou__btn--outline {
+  @include outline-button-styles;
+
+  &:hover {
+    border-color: $brand-orange;
+  }
+}
+
+.az-thankyou__btn--outline:hover,
+.az-thankyou__item,
+.az-thankyou__items {
+  border-color: $brand-orange !important;
+}
+
+.az-thankyou__totals-row .woocommerce-Price-amount.amount,
+.az-thankyou__item-total {
+  color: $brand-orange;
+}
+
+.az-thankyou__detail-block address,
+.az-thankyou__detail-block span,
+.az-thankyou__totals-row--discount {
+  color: $white;
+}

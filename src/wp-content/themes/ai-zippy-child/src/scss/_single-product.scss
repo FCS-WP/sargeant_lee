@@ -1,0 +1,130 @@
+@use "variables" as *;
+@use "base" as *;
+
+a:where(:not(.wp-element-button)) {
+  @include transition(color);
+  text-decoration: none;
+}
+
+.flex-viewport {
+  border-radius: $border-radius;
+  margin-bottom: 16px;
+}
+
+.woocommerce div.product div.images .flex-control-thumbs {
+  display: flex;
+  gap: 16px;
+}
+
+.woocommerce div.product div.images .flex-control-thumbs li img {
+  border-radius: $border-radius;
+}
+
+.woocommerce div.product form.cart table.variations td select {
+  @include transition((border-color, color));
+
+  font-family: $playfair;
+  border-color: $brand-orange;
+  color: $brand-orange;
+  height: auto;
+  outline: 0;
+
+  option {
+    background-color: $black;
+  }
+
+  &:hover,
+  &:focus-visible {
+    border-radius: 0;
+    border-color: $white;
+    color: $white;
+  }
+}
+
+.wc-block-components-product-sku {
+  display: none;
+}
+
+.woocommerce div.product form.cart div.quantity .qty {
+  @include transition((border-color, color));
+  background-color: $black;
+  color: $brand-orange;
+  border: 1px solid $brand-orange;
+  min-width: 90px;
+  outline: 0;
+
+  &:hover,
+  &:focus-visible {
+    border-radius: 0;
+    border-color: $white;
+    color: $white;
+  }
+}
+
+.woocommerce div.product form.cart button.single_add_to_cart_button {
+  @include transition((background-color, color));
+
+  &:hover {
+    background-color: $white;
+    color: $black;
+  }
+}
+
+.woocommerce div.product .woocommerce-tabs ul.tabs li {
+  @include transition((background-color, color));
+  background-color: $brand-orange;
+  color: $white;
+  border: $brand-orange;
+
+  a {
+    color: $white;
+  }
+
+  &:hover {
+    background-color: $white;
+    color: $black;
+
+    a {
+      color: $black;
+    }
+  }
+}
+
+.woocommerce div.product .woocommerce-tabs ul.tabs li.active {
+  color: $black;
+}
+
+.woocommerce div.product .woocommerce-tabs ul.tabs::before {
+  border-color: $brand-orange;
+}
+
+.woocommerce table.shop_attributes {
+  border-top: 1px dotted rgba(255, 255, 255, .1);
+}
+
+.woocommerce table.shop_attributes th,
+.woocommerce table.shop_attributes td {
+  border-bottom: 1px dotted rgba(255, 255, 255, .1);
+}
+
+.woocommerce div.product .woocommerce-tabs,
+.woocommerce .wp-block-column {
+  @include background-gradient;
+  @include image-shadow;
+  border-radius: $border-radius;
+
+  padding: 16px;
+}
+
+.woocommerce .wp-block-woocommerce-product-image-gallery {
+  max-width: 100%;
+}
+
+.woocommerce div.product div.images.woocommerce-product-gallery {
+  margin: 0;
+}
+
+.woocommerce .wp-block-woocommerce-product-image-gallery span.onsale {
+  padding: 0;
+  background-color: $brand-orange;
+}

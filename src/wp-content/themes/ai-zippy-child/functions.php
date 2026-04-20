@@ -90,3 +90,21 @@ function ai_zippy_child_enqueue_swiper(): void
     );
 }
 add_action('wp_enqueue_scripts', 'ai_zippy_child_enqueue_swiper', 5);
+
+/**
+ * Change number of posts per page on search pages
+ */
+function custom_search_posts_per_page( $query ) {
+    if ( ! is_admin() && $query->is_main_query() && $query->is_search() ) {
+        $query->set( 'posts_per_page', 9 );
+    }
+}
+add_action( 'pre_get_posts', 'custom_search_posts_per_page' );
+
+/**
+ * Add breadcrumbs to checkout page
+ */
+function custom_content_before_checkout_form() {
+    echo  '<div class="zc-steps"><div class="zc-steps__item is-active"><span class="zc-steps__num">1</span><span class="zc-steps__label">Shopping cart</span><span class="zc-steps__line"></span></div><div class="zc-steps__item is-active"><span class="zc-steps__num">2</span><span class="zc-steps__label">Checkout details</span><span class="zc-steps__line"></span></div><div class="zc-steps__item"><span class="zc-steps__num">3</span><span class="zc-steps__label">Order complete</span></div></div>';
+}
+add_action( 'woocommerce_before_checkout_form', 'custom_content_before_checkout_form' );

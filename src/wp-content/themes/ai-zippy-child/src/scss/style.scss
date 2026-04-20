@@ -2,3 +2,11 @@
 @use "base";
 @use "header";
 @use 'footer';
+@use 'shop';
+@use 'single-product';
+@use 'mini-cart';
+@use 'cart';
+@use 'checkout';
+@use 'order-received';
+@use 'pay-order';
+@use 'search';

@@ -19,6 +19,21 @@
 					"slug": "white",
 					"color": "#FFFFFF",
 					"name": "White"
+				},
+				{
+					"slug": "border",
+					"color": "#ff7f24",
+					"name": "Border"
+				},
+				{
+					"slug": "muted",
+					"color": "#999999",
+					"name": "Muted"
+				},
+				{
+					"slug": "danger",
+					"color": "#999999",
+					"name": "Danger"
 				}
 			]
 		},

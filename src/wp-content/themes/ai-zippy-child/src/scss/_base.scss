@@ -34,6 +34,59 @@
   }
 }
 
+@mixin button-styles {
+  @include transition((color, background-color));
+
+  font-family: $playfair;
+  background-color: $brand-orange;
+  color: $white;
+  font-weight: bold;
+
+  &:hover {
+    color: $black;
+    background-color: $white;
+  }
+}
+
+@mixin outline-button-styles {
+  @include transition((color, background-color));
+
+  font-family: $playfair;
+  background-color: transparent;
+  color: $brand-orange;
+  font-weight: bold;
+  border: 1px solid $brand-orange;
+
+  &:hover {
+    color: $white;
+    background-color: $brand-orange;
+  }
+}
+
+@mixin input-styles {
+  @include transition((color, border-color));
+  
+  font-family: $playfair;
+  background-color: transparent;
+  color: $brand-orange;
+  border: 1px solid $brand-orange;
+
+  &:focus,
+  &:hover {
+    border-color: $white;
+    color: $white;
+  }
+
+  &::placeholder {
+    color: $white;
+    opacity: 0.6;
+  }
+}
+
+@mixin background-gradient {
+  background: $background-gradient;
+}
+
 @mixin image-hover {
   @include transition((transform));
 

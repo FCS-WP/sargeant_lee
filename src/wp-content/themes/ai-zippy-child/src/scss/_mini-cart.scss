@@ -1,0 +1,115 @@
+@use "variables" as *;
+@use "base" as *;
+
+.wc-block-components-drawer {
+  background-color: transparent;
+  border-left: 0;
+}
+
+.wc-block-mini-cart__items .wc-block-mini-cart__products-table .wc-block-cart-items__row {
+  border-top: 1px solid $brand-orange;
+}
+
+.wc-block-components-quantity-selector .wc-block-components-quantity-selector__button {
+  @include transition((background-color, color));
+  background-color: $brand-orange !important;
+  color: $white;
+
+  &:hover {
+    background-color: $white !important;
+    color: $black;
+  }
+}
+
+table.wc-block-cart-items .wc-block-cart-items__row .wc-block-cart-item__quantity .wc-block-cart-item__remove-link:hover {
+  opacity: 1;
+}
+
+table.wc-block-cart-items .wc-block-cart-items__row .wc-block-cart-item__quantity .wc-block-cart-item__remove-link svg {
+  @include transition((fill));
+  fill: $brand-orange;
+
+  &:hover {
+    fill: $white;
+  }
+}
+
+.is-mobile table.wc-block-cart-items .wc-block-cart-items__row .wc-block-cart-item__total .wc-block-components-formatted-money-amount,
+.wc-block-mini-cart-items .wc-block-components-product-price .wc-block-components-product-price__value {
+  color: $brand-orange;
+}
+
+.is-mobile table.wc-block-cart-items .wc-block-cart-items__row .wc-block-cart-item__image {
+  padding: 0;
+}
+
+.wc-block-cart-item__total-price-and-sale-badge-wrapper .wc-block-components-sale-badge {
+  border: 1px solid $brand-orange;
+}
+
+.wc-block-mini-cart__footer {
+  // background-color: $brand-orange;
+  background-color: color-mix(in srgb, currentColor 10%, transparent);
+}
+
+.wc-block-mini-cart__footer .wc-block-mini-cart__footer-actions .wp-block-woocommerce-mini-cart-checkout-button-block {
+  @include transition((background-color, color));
+  background-color: $brand-orange !important;
+  color: $white !important;
+  border-width: 1px !important;
+
+  &:hover {
+    background-color: $white !important;
+    color: $black !important;
+  }
+}
+
+.wc-block-mini-cart__footer .wc-block-mini-cart__footer-actions .wc-block-mini-cart__footer-cart {
+  @include transition((background-color));
+  border-color: $brand-orange !important;
+  color: $white !important;
+  background-color: color-mix(in srgb, $black 10%, transparent) !important;
+  box-shadow: none !important;
+  
+  &:hover {
+    background-color: $brand-orange !important;
+    border-color: $brand-orange !important;
+  }
+}
+
+.wc-block-components-button.wc-block-components-drawer__close {
+  padding: 0 !important;
+  opacity: 1;
+}
+
+.wc-block-components-drawer__close svg {
+  @include transition((fill));
+  width: 16px !important;
+  height: 16px !important;
+  fill: $brand-orange !important;
+}
+
+.wc-block-components-button.wc-block-components-drawer__close {
+  &:hover {
+    background-color: $black !important;
+
+    svg {
+      fill: $white !important;
+    }
+  }
+}
+
+.wc-block-mini-cart__footer-subtotal .wc-block-components-totals-item__label,
+.wc-block-mini-cart__footer .wc-block-components-totals-item__label {
+  color: $white;
+}
+
+.wc-block-mini-cart__footer-subtotal .wc-block-components-totals-item__value,
+.wc-block-mini-cart__footer .wc-block-components-totals-item__value,
+.wc-block-mini-cart__footer .wc-block-formatted-money-amount {
+  color: $white;
+}
+
+// .wp-block-woocommerce-filled-mini-cart-contents-block {
+//   @include background-gradient;
+// }

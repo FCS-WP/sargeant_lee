@@ -1,0 +1,120 @@
+@use "variables" as *;
+@use "base" as *;
+
+.zc-steps__label {
+  color: $white;
+}
+
+.zc-steps__num {
+  background-color: $white;
+  color: $black;
+}
+
+.zc-steps__item.is-active .zc-steps__label {
+  color: $brand-orange;
+}
+
+.zc-steps__item.is-active .zc-steps__num {
+  color: $white;
+}
+
+.zc-steps__item.is-active .zc-steps__num,
+.zc-steps__item.is-active .zc-steps__line {
+  background-color: $brand-orange;
+}
+
+.zc-sidebar,
+.zc-items {
+  @include background-gradient;
+  @include image-shadow;
+}
+
+.zc-items__cols,
+.zc-row {
+  border-color: $brand-orange;
+}
+
+.zc-row__qty {
+  border-color: $brand-orange;
+}
+
+.zc-items__count,
+.zc-row__qty-btn,
+.zc-items__cols span,
+.zc-sidebar__row span:first-child,
+.zc-sidebar__row--total span:first-child,
+.zc-sidebar__promo-title,
+.zc-row__qty-val,
+.zc-row__name,
+.zc-items__title {
+  color: white;
+}
+
+.zc-sidebar__row span:last-child,
+.zc-sidebar__row--total span:last-child,
+.zc-row__price {
+  color: $brand-orange;
+}
+
+.zc-row__qty-btn,
+.zc-items__clear,
+.zc-sidebar__checkout,
+.zc-sidebar__promo-form button {
+  @include button-styles;
+}
+
+.zc-sidebar__checkout {
+  transition: all $transition-speed $transition-ease !important;
+
+  &:hover {
+    color: $black !important;
+  }
+}
+
+.zc-sidebar__promo-form button {
+  &:hover {
+    background-color: $white !important;
+  }
+}
+
+.zc-sidebar__coupon-tag {
+  background-color: $black;
+  border: 1px solid $brand-orange;
+  color: $brand-orange;
+}
+
+.zc-sidebar__promo-form input {
+  @include input-styles;
+  transition: all $transition-speed $transition-ease !important;
+
+  &:focus {
+    background-color: black;
+  }
+}
+
+.zc-sidebar__promo-error {
+  color: $brand-orange;
+}
+
+.zc-row__remove {
+  @include transition((background-color));
+  color: white;
+
+  &:hover {
+    background-color: $brand-orange !important;
+  }
+}
+
+.zc-empty__btn.zc-empty__btn--secondary {
+  @include button-styles;
+  color: $white !important;
+  border: 0 !important;
+
+  &:hover {
+    color: $black !important;
+  }
+}
+
+.zc-empty__btn.zc-empty__btn--primary {
+  @include outline-button-styles;
+}

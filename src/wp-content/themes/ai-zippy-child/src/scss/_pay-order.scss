@@ -1,0 +1,77 @@
+@use "variables" as *;
+@use "base" as *;
+
+.woocommerce-order-pay #payment {
+  @include background-gradient;
+  @include image-shadow;
+  border-radius: $border-radius;
+}
+
+.woocommerce-order-pay .wc_payment_method {
+  p label br {
+    display: none;
+  }
+}
+
+.woocommerce-order-pay #payment ul.payment_methods li input {
+  display: none;
+}
+
+.woocommerce-order-pay #payment ul.payment_methods li input + p + p {
+  position: relative;
+
+  label {
+    cursor: pointer;
+  }
+
+  &::before {
+    content: '';
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border: 1px solid $brand-orange;
+    margin-top: 3px;
+    margin-right: 5px;
+  }
+}
+
+.woocommerce-order-pay #payment ul.payment_methods li input:checked + p + p {
+  &::before {
+    background-color: $brand-orange;
+  }
+}
+
+.woocommerce-order-pay #payment #place_order {
+  @include button-styles;
+  border-radius: $border-radius;
+}
+
+.woocommerce-order-pay #payment div.payment_box {
+  background-color: $brand-orange;
+
+  &::before {
+    border: 1em solid $brand-orange;
+    border-right-color: transparent;
+    border-left-color: transparent;
+    border-top-color: transparent;
+  }
+
+  p {
+    color: $white;
+  }
+}
+
+.woocommerce-order-pay table.shop_table {
+  @include background-gradient;
+  @include image-shadow;
+  border-radius: $border-radius;
+  border: 0;
+  padding: 16px;
+}
+
+.woocommerce-order-pay table.shop_table tbody th,
+.woocommerce-order-pay table.shop_table tfoot td,
+.woocommerce-order-pay table.shop_table tfoot th,
+.woocommerce-order-pay table.shop_table td {
+  border-color: $brand-orange;
+}
