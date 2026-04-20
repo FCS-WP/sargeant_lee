@@ -1,6 +1,7 @@
 @use "variables" as *;
 @use "base" as *;
 
+body.tax-product_cat main,
 body.single-product main,
 body.search main,
 body.woocommerce-shop main,
@@ -164,10 +165,6 @@ body.woocommerce-cart main {
 .sf__checkbox:hover,
 .sf__radio:hover {
   color: $brand-orange;
-}
-
-.sf__badge--sale {
-  background-color: $black;
 }
 
 .sf--top .sf__filters--top {

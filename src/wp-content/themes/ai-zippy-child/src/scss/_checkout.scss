@@ -1,9 +1,56 @@
 @use "variables" as *;
 @use "base" as *;
 
+.woocommerce-checkout #payment.woocommerce-checkout-payment,
+.woocommerce-checkout .shop_table.woocommerce-checkout-review-order-table,
+.woocommerce-checkout #order_review_heading,
+.woocommerce-checkout .col-2,
+.woocommerce-checkout .woocommerce-billing-fields,
 .az-checkout__card {
   @include background-gradient;
   @include image-shadow;
+}
+
+.woocommerce-checkout .shop_table.woocommerce-checkout-review-order-table,
+.woocommerce-checkout #order_review_heading,
+.woocommerce-checkout .col-2,
+.woocommerce-checkout .woocommerce-billing-fields {
+  padding: 16px;
+  border-radius: $border-radius;
+}
+
+.woocommerce-checkout #payment.woocommerce-checkout-payment {
+  border-radius: $border-radius;
+}
+
+.woocommerce-checkout .col-2 {
+  margin-top: 1.5rem;
+}
+
+.woocommerce-checkout #order_review_heading,
+.woocommerce-checkout .shop_table.woocommerce-checkout-review-order-table {
+  margin-bottom: 1.5rem;
+}
+
+.woocommerce-checkout .woocommerce-billing-fields h3,
+.woocommerce-checkout #order_review_heading {
+  margin-top: 0;
+}
+
+.woocommerce-checkout #payment ul.payment_methods,
+.woocommerce-checkout #payment div.form-row {
+  padding: 16px;
+}
+
+.custom-checkout-container .customer-infos {
+  padding-right: 1.5rem;
+
+  @media (max-width: 768px) {
+    padding-right: 0;
+    padding-bottom: 1.5rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid $brand-orange;
+  }
 }
 
 .az-checkout__card-num,
@@ -29,6 +76,96 @@
 
   &:focus {
     box-shadow: none !important;
+  }
+}
+
+.woocommerce-checkout form .form-row input.input-text,
+.woocommerce-checkout form .form-row textarea.input-text,
+.woocommerce-checkout form .form-row input[type=text],
+.woocommerce-checkout form .form-row input[type=email],
+.woocommerce-checkout form .form-row input[type=tel],
+.woocommerce-checkout form .form-row input[type=password],
+.woocommerce-checkout form .form-row input[type=number],
+.woocommerce-checkout form .form-row input[type=url],
+.woocommerce-checkout form .form-row select,
+.woocommerce-checkout form .form-row textarea {
+  @include transition((color, border-color));
+  
+  font-family: $playfair;
+  background-color: transparent;
+  color: $brand-orange;
+  border: 1px solid $brand-orange;
+  font-size: $medium;
+  padding: 11px 20px;
+
+  &:focus,
+  &:hover {
+    border-color: $white;
+    color: $white;
+  }
+}
+
+.woocommerce-checkout table.shop_table {
+  border: 0;
+
+  tfoot th,
+  tfoot td,
+  th,
+  td {
+    border-color: $brand-orange;
+  }
+}
+
+.woocommerce-checkout #payment div.payment_box {
+  display: none;
+}
+
+.woocommerce-checkout .woocommerce-Price-amount.amount {
+  color: $brand-orange;
+}
+
+.woocommerce-checkout #payment ul.payment_methods li input[type=radio] {
+  display: none;
+  
+  & + label {
+    @include transition(color);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    &:hover {
+      color: $brand-orange;
+    }
+    
+    &::before {
+      @include transition(background-color);
+      content: '';
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      vertical-align: middle;
+      border: 1px solid $brand-orange;
+      border-radius: 100%;
+    }
+  }
+
+  &:checked + label::before {
+    background-color: $brand-orange;
+  }
+}
+
+.woocommerce-checkout #payment #place_order {
+  @include button-styles;
+  cursor: pointer;
+  border-radius: 100px !important;
+}
+
+.woocommerce-checkout .woocommerce-terms-and-conditions-wrapper a {
+  color: var(--wp--preset--color--muted);
+
+  &:hover {
+    color: $brand-orange;
   }
 }
 
@@ -73,14 +210,41 @@
   color: $white !important;
 }
 
-.wc-block-components-notice-banner.is-error {
+.wc-block-components-notice-banner {
   background-color: $black !important;
-  border: 1px solid $brand-orange !important;
   border-left: 4px solid $brand-orange !important;
 }
 
-.wc-block-components-notice-banner.is-error>svg {
+.wc-block-components-notice-banner>svg {
   background-color: $brand-orange;
+}
+
+.wc-block-components-notice-banner > .wc-block-components-notice-banner__content .wc-forward {
+  color: $white !important;
+
+  &:hover {
+    color: $brand-orange !important;
+    text-decoration: underline;
+  }
+}
+
+.wc-block-components-notice-banner.is-error,
+.wc-block-components-notice-banner.woocommerce-error,
+.woocommerce-message.is-error,
+.woocommerce-message.woocommerce-error,
+.woocommerce-info.is-error,
+.woocommerce-info.woocommerce-error,
+.woocommerce-error.is-error,
+.woocommerce-error.woocommerce-error,
+.wc-block-components-notice-banner.is-success,
+.wc-block-components-notice-banner.woocommerce-message,
+.woocommerce-message.is-success,
+.woocommerce-message.woocommerce-message,
+.woocommerce-info.is-success,
+.woocommerce-info.woocommerce-message,
+.woocommerce-error.is-success,
+.woocommerce-error.woocommerce-message {
+  border-left: 4px solid $brand-orange !important;
 }
 
 .az-checkout #place_order {
@@ -93,9 +257,9 @@
   }
 }
 
-.woocommerce-additional-fields__field-wrapper {
-  display: none;
-}
+// .woocommerce-additional-fields__field-wrapper {
+//   display: none;
+// }
 
 .woocommerce-checkout {
   .zc-steps {
@@ -180,5 +344,11 @@
   .zc-steps__item.is-active .zc-steps__num,
   .zc-steps__item.is-active .zc-steps__line {
     background-color: $brand-orange;
+  }
+
+  @media screen and (max-width: 768px) {
+    .zc-steps__label {
+      display: none;
+    }
   }
 }

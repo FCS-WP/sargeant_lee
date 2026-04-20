@@ -47,6 +47,7 @@ a:where(:not(.wp-element-button)) {
 
 .woocommerce div.product form.cart div.quantity .qty {
   @include transition((border-color, color));
+  border-radius: $border-radius;
   background-color: $black;
   color: $brand-orange;
   border: 1px solid $brand-orange;
@@ -63,6 +64,8 @@ a:where(:not(.wp-element-button)) {
 
 .woocommerce div.product form.cart button.single_add_to_cart_button {
   @include transition((background-color, color));
+  cursor: pointer;
+  border-radius: 99px;
 
   &:hover {
     background-color: $white;
