@@ -221,3 +221,33 @@ body.woocommerce-cart main {
 .sf__toolbar-skeleton {
   background: $background-gradient !important;
 }
+
+.shop-hero {
+  overflow: visible;
+}
+
+.shop-hero::before {
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100vw;
+}
+
+.shop-hero::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: -1;
+  display: block;
+  width: 100vw;
+  height: 100%;
+  background-image: url('/wp-content/themes/ai-zippy-child/assets/images/shop-hero.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  body.contact-us & {
+    background-image: url('/wp-content/themes/ai-zippy-child/assets/images/contact-us.jpg');
+  }
+}
