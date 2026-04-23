@@ -135,6 +135,23 @@
   gap: 60px;
 }
 
+// ---- Logo ----
+
+.of__logo {
+  display: block;
+  margin-bottom: 20px;
+}
+
+.of__logo-img {
+  @include rounded-tiny;
+
+  display: block;
+  max-width: 90px;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
 // ---- Eyebrow ----
 
 .of__eyebrow {
@@ -191,4 +208,14 @@
     color: $white;
     font-size: $medium;
   }
+}
+
+// ---- Button ----
+
+.of__btn-wrap {
+  display: flex;
+}
+
+.of__btn {
+  @include button;
 }
