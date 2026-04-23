@@ -43,6 +43,11 @@ document.addEventListener("DOMContentLoaded", () => {
 					spaceBetween: 36,
 				},
 			},
+      mousewheel: {
+				invert: false,
+				sensitivity: 1,
+				releaseOnEdges: true, // Allows page scrolling once the slider reaches the last slide
+			},
 		};
 
 		if (config.autoplay) {

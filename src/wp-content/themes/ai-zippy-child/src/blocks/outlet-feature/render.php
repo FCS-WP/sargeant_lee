@@ -12,12 +12,15 @@ $heading        = !empty($attributes['heading'])       ? esc_html($attributes['h
 $content        = !empty($attributes['content'])       ? $attributes['content']                 : '';
 $image1_url     = !empty($attributes['image1Url'])     ? esc_url($attributes['image1Url'])      : '';
 $image2_url     = !empty($attributes['image2Url'])     ? esc_url($attributes['image2Url'])      : '';
+$logo_url       = !empty($attributes['logoUrl'])       ? esc_url($attributes['logoUrl'])        : '';
 $layout         = in_array($attributes['layout'] ?? '', ['text-left', 'text-right'], true)
                     ? $attributes['layout']
                     : 'text-left';
 $show_border    = !empty($attributes['showBorder']);
 $padding_top    = !empty($attributes['paddingTop'])    ? esc_attr($attributes['paddingTop'])    : '80px';
 $padding_bottom = !empty($attributes['paddingBottom']) ? esc_attr($attributes['paddingBottom']) : '80px';
+$btn_label      = !empty($attributes['btnLabel'])      ? esc_html($attributes['btnLabel'])      : '';
+$btn_url        = !empty($attributes['btnUrl'])        ? esc_url($attributes['btnUrl'])         : '#';
 
 $paragraphs = $content ? array_filter(preg_split('/\n{2,}/', $content)) : [];
 
@@ -49,10 +52,15 @@ $inline_style    = '--of-pt:' . $padding_top . ';--of-pb:' . $padding_bottom . '
         <?php };
 
         // Render text column
-        $text_col = function() use ($eyebrow, $heading, $paragraphs) { ?>
+        $text_col = function() use ($eyebrow, $heading, $paragraphs, $logo_url, $btn_label, $btn_url) { ?>
             <div class="of__content">
-                <?php if ($eyebrow || $heading) : ?>
+                <?php if ($eyebrow || $heading || $logo_url) : ?>
                     <div class="of__header">
+                        <?php if ($logo_url) : ?>
+                            <div class="of__logo">
+                                <img class="of__logo-img" src="<?php echo $logo_url; ?>" alt="" loading="lazy" />
+                            </div>
+                        <?php endif; ?>
                         <?php if ($eyebrow) : ?>
                             <div class="of__eyebrow">
                                 <span class="of__eyebrow-line" aria-hidden="true"></span>
@@ -70,6 +78,12 @@ $inline_style    = '--of-pt:' . $padding_top . ';--of-pb:' . $padding_bottom . '
                         <?php foreach ($paragraphs as $para) : ?>
                             <p><?php echo esc_html(trim($para)); ?></p>
                         <?php endforeach; ?>
+                    </div>
+                <?php endif; ?>
+
+                <?php if ($btn_label) : ?>
+                    <div class="of__btn-wrap">
+                        <a class="of__btn" target="_blank" href="<?php echo $btn_url; ?>"><?php echo $btn_label; ?></a>
                     </div>
                 <?php endif; ?>
             </div>

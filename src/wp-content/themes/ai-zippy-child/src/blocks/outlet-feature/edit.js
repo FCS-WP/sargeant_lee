@@ -19,6 +19,8 @@ export default function Edit({ attributes, setAttributes }) {
 		eyebrow,
 		heading,
 		content,
+		logoUrl,
+		logoId,
 		image1Url,
 		image1Id,
 		image2Url,
@@ -27,6 +29,8 @@ export default function Edit({ attributes, setAttributes }) {
 		showBorder,
 		paddingTop,
 		paddingBottom,
+		btnLabel,
+		btnUrl,
 	} = attributes;
 
 	const blockProps = useBlockProps({
@@ -59,6 +63,11 @@ export default function Edit({ attributes, setAttributes }) {
 	// Text column
 	const textCol = (
 		<div className="of__content">
+			{logoUrl && (
+				<div className="of__logo">
+					<img src={logoUrl} alt="" className="of__logo-img" />
+				</div>
+			)}
 			{eyebrow && (
 				<div className="of__eyebrow">
 					<span className="of__eyebrow-line" aria-hidden="true" />
@@ -71,6 +80,11 @@ export default function Edit({ attributes, setAttributes }) {
 					{content.split(/\n\n+/).map((para, i) => (
 						<p key={i}>{para}</p>
 					))}
+				</div>
+			)}
+			{btnLabel && (
+				<div className="of__btn-wrap">
+					<a className="of__btn" href={btnUrl || "#"}>{btnLabel}</a>
 				</div>
 			)}
 		</div>
@@ -109,6 +123,28 @@ export default function Edit({ attributes, setAttributes }) {
 				</PanelBody>
 
 				<PanelBody title={__("Images", "ai-zippy-child")} initialOpen={true}>
+					{/* Logo */}
+					<p style={{ fontWeight: 600, marginBottom: "4px" }}>
+						{__("Logo (optional)", "ai-zippy-child")}
+					</p>
+					<MediaUploadCheck>
+						<MediaUpload
+							onSelect={(media) => setAttributes({ logoUrl: media.url, logoId: media.id })}
+							allowedTypes={["image"]}
+							value={logoId}
+							render={({ open }) => (
+								<Button variant="secondary" onClick={open} style={{ marginBottom: "6px", display: "block" }}>
+									{logoUrl ? __("Replace logo", "ai-zippy-child") : __("Upload logo", "ai-zippy-child")}
+								</Button>
+							)}
+						/>
+					</MediaUploadCheck>
+					{logoUrl && (
+						<Button variant="link" isDestructive onClick={() => setAttributes({ logoUrl: "", logoId: 0 })} style={{ display: "block", marginBottom: "12px" }}>
+							{__("Remove logo", "ai-zippy-child")}
+						</Button>
+					)}
+				
 					{/* Image 1 */}
 					<p style={{ fontWeight: 600, marginBottom: "4px" }}>
 						{__("Image 1 — primary (top-right)", "ai-zippy-child")}
@@ -171,6 +207,18 @@ export default function Edit({ attributes, setAttributes }) {
 						value={content}
 						onChange={(value) => setAttributes({ content: value })}
 						rows={6}
+					/>
+					<TextControl
+						label={__("Button label", "ai-zippy-child")}
+						value={btnLabel}
+						onChange={(value) => setAttributes({ btnLabel: value })}
+						help={__("Leave blank to hide button.", "ai-zippy-child")}
+					/>
+					<TextControl
+						label={__("Button URL", "ai-zippy-child")}
+						value={btnUrl}
+						onChange={(value) => setAttributes({ btnUrl: value })}
+						type="url"
 					/>
 				</PanelBody>
 			</InspectorControls>

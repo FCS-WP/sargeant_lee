@@ -23,6 +23,14 @@
 			"type": "string",
 			"default": ""
 		},
+		"logoUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"logoId": {
+			"type": "number",
+			"default": 0
+		},
 		"image1Url": {
 			"type": "string",
 			"default": ""
@@ -55,6 +63,14 @@
 		"paddingBottom": {
 			"type": "string",
 			"default": "80px"
+		},
+		"btnLabel": {
+			"type": "string",
+			"default": ""
+		},
+		"btnUrl": {
+			"type": "string",
+			"default": ""
 		}
 	},
 	"textdomain": "ai-zippy-child",
