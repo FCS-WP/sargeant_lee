@@ -32,14 +32,18 @@ $inline_style    = '--of-pt:' . $padding_top . ';--of-pb:' . $padding_bottom . '
         $images_col = function() use ($image1_url, $image2_url) { ?>
             <div class="of__images">
                 <div class="of__img-primary">
+                  <div class="of__img__wrapper">
                     <?php if ($image1_url) : ?>
                         <img class="of__img" src="<?php echo $image1_url; ?>" alt="" loading="lazy" />
                     <?php endif; ?>
+                  </div>
                 </div>
                 <div class="of__img-secondary">
+                  <div class="of__img__wrapper">
                     <?php if ($image2_url) : ?>
                         <img class="of__img" src="<?php echo $image2_url; ?>" alt="" loading="lazy" />
                     <?php endif; ?>
+                  </div>
                 </div>
             </div>
         <?php };

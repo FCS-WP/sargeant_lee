@@ -1,10 +1,14 @@
 @use "../../scss/variables" as *;
 @use "../../scss/base" as *;
 
+body.contact-us .wp-block-post-title {
+  color: $white;
+}
+
 // ---- Block wrapper ----
 
 .cr {
-  background-color: $black;
+  background-color: transparent;
   padding-top: var(--cr-pt, 80px);
   padding-bottom: var(--cr-pb, 80px);
 
@@ -70,7 +74,7 @@
 
 .cr__heading {
   margin: 0;
-  color: $white;
+  color: $brand-brown;
   font-size: $large;
   font-weight: 700;
   line-height: 1.2;
@@ -121,8 +125,8 @@
 .cr__outlet-contact {
   p {
     margin: 0 0 4px;
-    color: $white;
-    font-size: $small;
+    color: $brand-brown;
+    font-size: $medium;
     line-height: 1.6;
   }
 }
@@ -137,14 +141,14 @@
 .cr__outlet-hours {
   p {
     margin: 0 0 4px;
-    color: $white;
-    font-size: $small;
+    color: $brand-brown;
+    font-size: $medium;
     line-height: 1.6;
   }
 }
 
 .cr__reserve-btn {
-  @include button;
+  @include button-alt;
   display: inline-block;
 }
 
@@ -160,7 +164,7 @@
 
 .cr__form-heading {
   margin: 0;
-  color: $white;
+  color: $brand-brown;
   font-size: $large;
 }
 
@@ -177,7 +181,7 @@
   }
 
   input[type="submit"] {
-    @include button;
+    @include button-alt;
     border: 0;
   }
 

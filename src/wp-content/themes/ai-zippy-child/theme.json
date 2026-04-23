@@ -11,6 +11,16 @@
 					"name": "Brand Orange"
 				},
 				{
+					"slug": "brand-white",
+					"color": "#FFF4E7",
+					"name": "Brand White"
+				},
+				{
+					"slug": "brand-brown",
+					"color": "#3B2314",
+					"name": "Brand Brown"
+				},
+				{
 					"slug": "black",
 					"color": "#000000",
 					"name": "Black"

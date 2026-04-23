@@ -37,40 +37,42 @@ if ($bg_url) {
             $link_label = !empty($card['linkLabel']) ? esc_html($card['linkLabel']) : __('See More', 'ai-zippy-child');
         ?>
             <div class="oc__card">
-                <?php if ($image_url) : ?>
-                    <img
-                        class="oc__bg"
-                        src="<?php echo $image_url; ?>"
-                        alt=""
-                        aria-hidden="true"
-                        loading="lazy"
-                    />
-                <?php endif; ?>
-
-                <div class="oc__overlay" aria-hidden="true"></div>
-
-                <div class="oc__body">
-                    <?php if ($logo_url) : ?>
-                        <div class="oc__logo-wrap">
-                            <img
-                                class="oc__logo"
-                                src="<?php echo $logo_url; ?>"
-                                alt=""
-                                loading="lazy"
-                                aria-hidden="true"
-                            />
-                        </div>
-                    <?php else : ?>
-                        <div class="oc__logo-placeholder"></div>
+                <div class="oc__card__inner">
+                    <?php if ($image_url) : ?>
+                        <img
+                            class="oc__bg"
+                            src="<?php echo $image_url; ?>"
+                            alt=""
+                            aria-hidden="true"
+                            loading="lazy"
+                        />
                     <?php endif; ?>
 
-                    <?php if ($heading) : ?>
-                        <h2 class="oc__heading"><?php echo nl2br($heading); ?></h2>
-                    <?php endif; ?>
+                    <div class="oc__overlay" aria-hidden="true"></div>
 
-                    <a class="oc__btn" href="<?php echo $link_url; ?>">
-                        <?php echo $link_label; ?>
-                    </a>
+                    <div class="oc__body">
+                        <?php if ($logo_url) : ?>
+                            <div class="oc__logo-wrap">
+                                <img
+                                    class="oc__logo"
+                                    src="<?php echo $logo_url; ?>"
+                                    alt=""
+                                    loading="lazy"
+                                    aria-hidden="true"
+                                />
+                            </div>
+                        <?php else : ?>
+                            <div class="oc__logo-placeholder"></div>
+                        <?php endif; ?>
+
+                        <?php if ($heading) : ?>
+                            <h2 class="oc__heading"><?php echo nl2br($heading); ?></h2>
+                        <?php endif; ?>
+
+                        <a class="oc__btn" href="<?php echo $link_url; ?>">
+                            <?php echo $link_label; ?>
+                        </a>
+                    </div>
                 </div>
             </div>
         <?php endforeach; ?>

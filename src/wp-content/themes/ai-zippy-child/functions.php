@@ -10,6 +10,26 @@
 defined('ABSPATH') || exit;
 
 /**
+ * Inject theme-relative image URLs as CSS custom properties.
+ * This avoids webpack css-loader trying to resolve urls() in SCSS mixins.
+ */
+function ai_zippy_child_css_vars(): void {
+    $pattern_url = get_theme_file_uri('assets/images/pattern-oa.png');
+    $pattern_url_2 = get_theme_file_uri('assets/images/pattern-ob.png');
+    $pattern_url_3 = get_theme_file_uri('assets/images/pattern-oc.png');
+    $pattern_url_4 = get_theme_file_uri('assets/images/pattern-od.png');
+    echo '<style>
+        :root{
+            --pattern-img-1: url("' . esc_url($pattern_url) . '");
+            --pattern-img-2: url("' . esc_url($pattern_url_2) . '");
+            --pattern-img-3: url("' . esc_url($pattern_url_3) . '");
+            --pattern-img-4: url("' . esc_url($pattern_url_4) . '");
+        }
+    </style>' . "\n";
+}
+add_action('wp_head', 'ai_zippy_child_css_vars', 1);
+
+/**
  * Enqueue child theme styles after parent.
  */
 function ai_zippy_child_enqueue_assets(): void

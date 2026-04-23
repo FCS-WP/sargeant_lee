@@ -48,8 +48,8 @@ table.wc-block-cart-items .wc-block-cart-items__row .wc-block-cart-item__quantit
 }
 
 .wc-block-mini-cart__footer {
-  // background-color: $brand-orange;
-  background-color: color-mix(in srgb, currentColor 10%, transparent);
+  background-color: $brand-brown;
+  // background-color: color-mix(in srgb, currentColor 10%, transparent);
 }
 
 .wc-block-mini-cart__footer .wc-block-mini-cart__footer-actions .wp-block-woocommerce-mini-cart-checkout-button-block {
@@ -68,7 +68,8 @@ table.wc-block-cart-items .wc-block-cart-items__row .wc-block-cart-item__quantit
   @include transition((background-color));
   border-color: $brand-orange !important;
   color: $white !important;
-  background-color: color-mix(in srgb, $black 10%, transparent) !important;
+  // background-color: color-mix(in srgb, $black 10%, transparent) !important;
+  background-color: $brand-brown !important;
   box-shadow: none !important;
   
   &:hover {
@@ -91,7 +92,7 @@ table.wc-block-cart-items .wc-block-cart-items__row .wc-block-cart-item__quantit
 
 .wc-block-components-button.wc-block-components-drawer__close {
   &:hover {
-    background-color: $black !important;
+    background-color: $brand-orange !important;
 
     svg {
       fill: $white !important;
@@ -113,3 +114,11 @@ table.wc-block-cart-items .wc-block-cart-items__row .wc-block-cart-item__quantit
 // .wp-block-woocommerce-filled-mini-cart-contents-block {
 //   @include background-gradient;
 // }
+
+.wc-block-mini-cart__empty-cart-wrapper p {
+  color: $brand-brown;
+}
+
+.wc-block-components-button:not(.is-link) {
+  @include button-styles;
+}

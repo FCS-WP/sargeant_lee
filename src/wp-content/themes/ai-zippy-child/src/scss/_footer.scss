@@ -1,10 +1,38 @@
 @use "variables" as *;
+@use "base" as *;
+
+footer.wp-block-group {
+  @include pattern-border(4, 0, 20px);
+
+  .wp-block-navigation a {
+    color: $brand-brown !important;
+  }
+
+  body:not(.home) & {
+    border-top: 1px solid $brand-orange;
+  }
+
+  .has-small-font-size {
+    color: $brand-brown !important;
+    border-top: 1px solid $brand-orange;
+    padding: 30px 0 20px;
+  }
+}
 
 .footer-columns {
   gap: 11.4rem;
 
   .wp-block-social-links {
     gap: 1rem;
+  }
+  
+  .wp-block-social-link {
+    border: 1px solid $brand-orange;
+
+    svg path {
+      @include transition((fill));
+      fill: $brand-white;
+    }
   }
 
   .wp-block-social-link:hover {
@@ -18,7 +46,20 @@
     border-radius: 100%;
 
     &:hover {
-      background-color: $white;
+      opacity: 1;
+      background-color: $brand-white;
+
+      svg path {
+        fill: $brand-orange;
+      }
     }
+  }
+
+  p {
+    color: $brand-brown;
+  }
+
+  .wp-block-image img {
+    border-radius: 5px;
   }
 }

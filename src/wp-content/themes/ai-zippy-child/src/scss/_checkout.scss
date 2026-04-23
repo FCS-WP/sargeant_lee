@@ -7,19 +7,22 @@
 .woocommerce-checkout .col-2,
 .woocommerce-checkout .woocommerce-billing-fields,
 .az-checkout__card {
-  @include background-gradient;
-  @include image-shadow;
+  // @include background-gradient;
+  // @include image-shadow;
+  background-color: $white;
 }
 
 .woocommerce-checkout .shop_table.woocommerce-checkout-review-order-table,
 .woocommerce-checkout #order_review_heading,
 .woocommerce-checkout .col-2,
 .woocommerce-checkout .woocommerce-billing-fields {
+  @include box-shadow;
   padding: 16px;
   border-radius: $border-radius;
 }
 
 .woocommerce-checkout #payment.woocommerce-checkout-payment {
+  @include box-shadow;
   border-radius: $border-radius;
 }
 
@@ -93,15 +96,16 @@
   
   font-family: $playfair;
   background-color: transparent;
-  color: $brand-orange;
+  color: $brand-brown;
   border: 1px solid $brand-orange;
   font-size: $medium;
   padding: 11px 20px;
 
   &:focus,
   &:hover {
-    border-color: $white;
-    color: $white;
+    border-color: $brand-brown;
+    color: $brand-orange;
+    outline: 0;
   }
 }
 
@@ -211,7 +215,7 @@
 }
 
 .wc-block-components-notice-banner {
-  background-color: $black !important;
+  // background-color: $black !important;
   border-left: 4px solid $brand-orange !important;
 }
 
@@ -312,20 +316,20 @@
   }
   
   .zc-steps__item.is-active .zc-steps__num {
-    background: var(--wp--preset--color--primary, #1a1a1a);
+    background: $brand-brown;
   }
   
   .zc-steps__item.is-active .zc-steps__label {
-    color: var(--wp--preset--color--primary, #1a1a1a);
-    font-weight: 600
+    color: $brand-brown;
+    font-weight: 600;
   }
   
   .zc-steps__item.is-done .zc-steps__num {
-    background: var(--wp--preset--color--accent, #c8a97e);
+    background: $brand-orange;
   }
 
   .zc-steps__label {
-    color: $white;
+    color: $brand-brown;
   }
 
   .zc-steps__num {
