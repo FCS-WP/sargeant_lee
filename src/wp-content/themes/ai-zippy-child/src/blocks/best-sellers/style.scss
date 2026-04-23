@@ -4,13 +4,17 @@
 // ---- Block wrapper ----
 
 .bs {
-  background-color: $black;
+  @include pattern-border(3);
+  @include wide-bg($white);
+
+  position: relative;
+  background-color: $white;
   padding-top: var(--bs-pt, 60px);
   padding-bottom: var(--bs-pb, 60px);
 
   @media (max-width: 768px) {
-    padding-top: 40px;
-    padding-bottom: 40px;
+    padding-top: 68px;
+    padding-bottom: 68px;
   }
 }
 
@@ -31,7 +35,7 @@
 
 .bs__heading {
   margin: 0;
-  color: $white;
+  color: $brand-brown;
   font-size: $large;
   font-weight: 600;
   text-transform: uppercase;
@@ -139,6 +143,7 @@
 }
 
 .bs__slide-link {
+  @include rounded-small;
   display: block;
   position: relative;
   overflow: hidden;

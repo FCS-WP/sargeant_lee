@@ -21,24 +21,25 @@ a:where(:not(.wp-element-button)) {
 }
 
 .woocommerce div.product form.cart table.variations td select {
-  @include transition((border-color, color));
+  @include input-styles;
+  // @include transition((border-color, color));
 
-  font-family: $playfair;
-  border-color: $brand-orange;
-  color: $brand-orange;
+  // font-family: $playfair;
+  // border-color: $brand-orange;
+  // color: $brand-orange;
   height: auto;
   outline: 0;
 
-  option {
-    background-color: $black;
-  }
+  // option {
+  //   background-color: $black;
+  // }
 
-  &:hover,
-  &:focus-visible {
-    border-radius: 0;
-    border-color: $white;
-    color: $white;
-  }
+  // &:hover,
+  // &:focus-visible {
+  //   border-radius: 0;
+  //   border-color: $white;
+  //   color: $white;
+  // }
 }
 
 .wc-block-components-product-sku {
@@ -46,31 +47,33 @@ a:where(:not(.wp-element-button)) {
 }
 
 .woocommerce div.product form.cart div.quantity .qty {
-  @include transition((border-color, color));
-  border-radius: $border-radius;
-  background-color: $black;
-  color: $brand-orange;
-  border: 1px solid $brand-orange;
+  @include input-styles;
+  // @include transition((border-color, color));
+  // border-radius: $border-radius;
+  // background-color: $black;
+  // color: $brand-orange;
+  // border: 1px solid $brand-orange;
   min-width: 90px;
   outline: 0;
 
-  &:hover,
-  &:focus-visible {
-    border-radius: 0;
-    border-color: $white;
-    color: $white;
-  }
+  // &:hover,
+  // &:focus-visible {
+  //   border-radius: 0;
+  //   border-color: $white;
+  //   color: $white;
+  // }
 }
 
 .woocommerce div.product form.cart button.single_add_to_cart_button {
-  @include transition((background-color, color));
+  @include button-styles;
+  // @include transition((background-color, color));
   cursor: pointer;
   border-radius: 99px;
 
-  &:hover {
-    background-color: $white;
-    color: $black;
-  }
+  // &:hover {
+  //   background-color: $white;
+  //   color: $black;
+  // }
 }
 
 .woocommerce div.product .woocommerce-tabs ul.tabs li {
@@ -78,6 +81,7 @@ a:where(:not(.wp-element-button)) {
   background-color: $brand-orange;
   color: $white;
   border: $brand-orange;
+  border: 1px solid $brand-orange;
 
   a {
     color: $white;
@@ -111,11 +115,12 @@ a:where(:not(.wp-element-button)) {
 }
 
 .woocommerce div.product .woocommerce-tabs,
-.woocommerce .wp-block-column {
-  @include background-gradient;
-  @include image-shadow;
+.woocommerce main .wp-block-column {
+  // @include background-gradient;
+  // @include image-shadow;
+  @include box-shadow;
   border-radius: $border-radius;
-
+  background-color: $white;
   padding: 16px;
 }
 

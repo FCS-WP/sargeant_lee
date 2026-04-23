@@ -17,8 +17,10 @@ body.search {
   }
 
   .wp-block-post {
-    @include background-gradient;
-    @include image-shadow;
+    // @include background-gradient;
+    // @include image-shadow;
+    @include box-shadow;
+    background-color: $white;
     border-radius: $border-radius;
     padding: 16px;
     padding-top: 0;

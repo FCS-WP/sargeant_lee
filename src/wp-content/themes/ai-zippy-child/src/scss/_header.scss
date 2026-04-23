@@ -1,13 +1,26 @@
 @use "variables" as *;
+@use "base" as *;
 
 // Custom cart icon
 .wc-block-mini-cart__quantity-badge {
+	position: relative;
 	width: 24px;
 	height: 24px;
-	background-image: url("/wp-content/themes/ai-zippy-child/assets/images/cart.png");
-	background-size: contain;
-	background-repeat: no-repeat;
-	background-position: center;
+	
+	&::after {
+		content: '';
+		@include filter-brown;
+		position: absolute;
+		display: block;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-image: url("/wp-content/themes/ai-zippy-child/assets/images/cart.png");
+		background-size: contain;
+		background-repeat: no-repeat;
+		background-position: center;
+	}
 
 	// Hide the default SVG
 	svg {
@@ -16,13 +29,14 @@
 }
 
 .wc-block-mini-cart__badge {
-	background-color: var(--wp--preset--color--white, #ffffff) !important;
-	color: var(--wp--preset--color--brand-black, #000000) !important;
+	background-color: var(--wp--preset--color--brand-brown, #ffffff) !important;
+	color: var(--wp--preset--color--brand-white, #000000) !important;
 }
 
 .custom-logo-link {
   border-radius: 8px;
   overflow: hidden;
+	mix-blend-mode: darken;
 }
 
 .wp-block-navigation .wp-block-navigation-item__label {

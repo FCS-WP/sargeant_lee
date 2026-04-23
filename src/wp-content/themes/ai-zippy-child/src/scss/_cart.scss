@@ -2,12 +2,13 @@
 @use "base" as *;
 
 .zc-steps__label {
-  color: $white;
+  color: $brand-brown;
 }
 
 .zc-steps__num {
   background-color: $white;
   color: $black;
+  border: 1px solid $brand-orange;
 }
 
 .zc-steps__item.is-active .zc-steps__label {
@@ -25,8 +26,9 @@
 
 .zc-sidebar,
 .zc-items {
-  @include background-gradient;
-  @include image-shadow;
+  // @include background-gradient;
+  // @include image-shadow;
+  // background-color: $brand-brown;
 }
 
 .zc-items__cols,
@@ -56,7 +58,10 @@
   color: $brand-orange;
 }
 
-.zc-row__qty-btn,
+.zc-row__qty-btn {
+  @include button-styles-alt;
+}
+
 .zc-items__clear,
 .zc-sidebar__checkout,
 .zc-sidebar__promo-form button {
@@ -78,7 +83,7 @@
 }
 
 .zc-sidebar__coupon-tag {
-  background-color: $black;
+  background-color: $brand-white;
   border: 1px solid $brand-orange;
   color: $brand-orange;
 }
@@ -86,10 +91,6 @@
 .zc-sidebar__promo-form input {
   @include input-styles;
   transition: all $transition-speed $transition-ease !important;
-
-  &:focus {
-    background-color: black;
-  }
 }
 
 .zc-sidebar__promo-error {
@@ -108,13 +109,33 @@
 .zc-empty__btn.zc-empty__btn--secondary {
   @include button-styles;
   color: $white !important;
-  border: 0 !important;
 
   &:hover {
-    color: $black !important;
+    color: $brand-brown !important;
   }
 }
 
 .zc-empty__btn.zc-empty__btn--primary {
   @include outline-button-styles;
+  color: $brand-brown !important;
+
+  &:hover {
+    color: $white !important;
+  }
+}
+
+.zc-items__count,
+.zc-row__qty-btn,
+.zc-items__cols span,
+.zc-sidebar__row span:first-child,
+.zc-sidebar__row--total span:first-child,
+.zc-sidebar__promo-title,
+.zc-row__qty-val,
+.zc-row__name,
+.zc-items__title {
+  color: $brand-brown;
+}
+
+.zc-empty__icon svg {
+  stroke: $brand-orange;
 }

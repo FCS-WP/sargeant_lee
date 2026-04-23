@@ -4,7 +4,9 @@
 // ---- Block wrapper ----
 
 .of {
-  background-color: $black;
+  @include wide-bg($brand-brown, 1.7rem);
+
+  background-color: $brand-brown;
   padding-top: var(--of-pt, 80px);
   padding-bottom: var(--of-pb, 80px);
   position: relative;
@@ -15,8 +17,8 @@
   }
 
   @media (max-width: 768px) {
-    padding-top: 48px;
-    padding-bottom: 48px;
+    padding-top: 68px;
+    padding-bottom: 68px;
   }
 }
 
@@ -60,6 +62,8 @@
 
 // Primary: top-right by default
 .of__img-primary {
+  @include frame;
+  
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -75,7 +79,7 @@
 
 // Secondary: bottom-left by default
 .of__img-secondary {
-  @include image-shadow;
+  @include frame;
 
   position: absolute;
   top: 50%;
@@ -90,9 +94,14 @@
   }
 }
 
+.of__img__wrapper {
+  @include rounded;
+  overflow: hidden;
+}
+
 .of__img {
   @include image-hover;
-  
+
   display: block;
   width: 100%;
   height: auto;

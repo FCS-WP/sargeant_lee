@@ -1,33 +1,32 @@
 @use "variables" as *;
 @use "base" as *;
 
-body.tax-product_cat main,
-body.single-product main,
-body.search main,
-body.woocommerce-shop main,
-body.woocommerce-checkout main,
-body.woocommerce-cart main {
-  position: relative;
+// body.tax-product_cat main,
+// body.single-product main,
+// body.search main,
+// body.woocommerce-shop main,
+// body.woocommerce-checkout main,
+// body.woocommerce-cart main {
+//   position: relative;
 
-  &::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    height: calc(100% + 185px);
-    background-image: url('/wp-content/themes/ai-zippy-child/assets/images/background.jpg');
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    z-index: -1;
-  }
-}
+//   &::before {
+//     content: '';
+//     position: absolute;
+//     left: 0;
+//     bottom: 0;
+//     width: 100%;
+//     height: calc(100% + 185px);
+//     background-image: url('/wp-content/themes/ai-zippy-child/assets/images/background.jpg');
+//     background-position: center;
+//     background-size: cover;
+//     background-repeat: no-repeat;
+//     background-attachment: fixed;
+//     z-index: -1;
+//   }
+// }
 
 .az-toast {
-  @include image-shadow;
-  background-color: $black;
+  // @include image-shadow;
   border-left: 4px solid $brand-orange !important;
 }
 
@@ -40,18 +39,23 @@ body.woocommerce-cart main {
 }
 
 .sf__card-btn {
+  @include button-styles;
   @include transition((color, background-color, transform));
   
-  background-color: $brand-orange;
-  color: $white;
   cursor: pointer;
   font-weight: bold;
   min-height: 38px;
 
   &:hover {
-    color: $black !important;
+    color: $brand-brown !important;
     background-color: $white;
   }
+}
+
+[data-product-id].is-added,
+a[href*=add-to-cart].is-added {
+  background-color: $brand-orange !important;
+  color: $white !important;
 }
 
 .sf__card-info {
@@ -60,7 +64,7 @@ body.woocommerce-cart main {
 
 .sf__card-title,
 .sf__card-price {
-  color: $white;
+  color: $brand-brown;
 }
 
 .sf__card-image {
@@ -70,32 +74,36 @@ body.woocommerce-cart main {
 }
 
 .sf__card {
-  @include image-shadow;
-  @include background-gradient;
+  // @include image-shadow;
+  // @include background-gradient;
+  @include box-shadow;
   border: 0;
   // background-color: rgba(0, 0, 0, 0.5);
 }
 
 .sf__card-wish-sm {
-  @include transition(border-color);
+  @include transition(background-color);
   border-color: $brand-orange;
 
   svg {
-    @include transition(stroke);
+    @include transition((stroke, fill));
     stroke: $brand-orange;
+    fill: $white;
   }
 
   &:hover {
-    border-color: $white;
+    background-color: $brand-orange;
 
     svg {
-      stroke: $white;
+      stroke: $brand-orange;
+      fill: $white;
     }
   }
 }
 
 .sf__page-btn {
-  @include image-shadow;
+  // @include image-shadow;
+  @include box-shadow;
   background-color: $brand-orange;
   color: $white;
   border-color: $brand-orange;
@@ -108,13 +116,13 @@ body.woocommerce-cart main {
 }
 
 .sf__count {
-  color: $white;
+  color: $brand-brown;
 }
 
 .sf__layout-btn,
 .sf__view-btn {
   background-color: $brand-orange;
-  border-color: $brand-orange;
+  border-color: $brand-orange !important;
 
   svg {
     @include transition(fill);
@@ -124,37 +132,55 @@ body.woocommerce-cart main {
   &.is-active,
   &:hover {
     svg {
-      fill: $black;
+      fill: $brand-brown;
     }
   }
 }
 
 .sf--sidebar .sf__filters--sidebar {
-  @include image-shadow;
-  @include background-gradient;
+  // @include image-shadow;
+  // @include background-gradient;
+  @include box-shadow;
 
   padding: 1rem;
   border-radius: $border-radius;
 }
 
 .sf__empty {
+  color: $brand-brown;
+}
+
+.sf__tag-remove {
   color: $white;
+
+  &:hover {
+    color: $brand-brown;
+  }
+}
+
+.sf__price-input,
+.sf__search-input {
+  @include input-styles;
+}
+
+.sf__search-icon {
+  stroke: $brand-orange;
 }
 
 .sf__tag,
 .sf__checkbox-count {
-  background-color: transparent;
-  color: $brand-orange;
-  border: 1px solid $brand-orange
+  background-color: $brand-orange;
+  color: $white;
+  border: 1px solid $brand-orange;
 }
 
 .sf__section-toggle,
 .sf__checkbox-label {
   @include transition(color);
-  color: $brand-orange;
+  color: $brand-brown;
 
   &:hover {
-    color: $white;
+    color: $brand-orange;
   }
 }
 
@@ -168,8 +194,9 @@ body.woocommerce-cart main {
 }
 
 .sf--top .sf__filters--top {
-  @include image-shadow;
-  @include background-gradient;
+  // @include image-shadow;
+  // @include background-gradient;
+  @include box-shadow;
 }
 
 .sf__card-desc {
@@ -179,6 +206,11 @@ body.woocommerce-cart main {
 .sf__checkbox input,
 .sf__radio input {
   accent-color: $brand-orange;
+}
+
+.sf__grid--list .sf__card-image {
+  border: 0;
+  border-right: 1px solid $brand-orange;
 }
 
 @media (max-width: 480px) {
@@ -213,13 +245,17 @@ body.woocommerce-cart main {
   }
 }
 
-.zc__skeleton-row,
-.zc__skeleton-items,
-.zc__skeleton-sidebar,
-.sf__skeleton,
-.sf__filters-skeleton,
-.sf__toolbar-skeleton {
-  background: $background-gradient !important;
+// .zc__skeleton-row,
+// .zc__skeleton-items,
+// .zc__skeleton-sidebar,
+// .sf__skeleton,
+// .sf__filters-skeleton,
+// .sf__toolbar-skeleton {
+//   background: $background-gradient !important;
+// }
+
+.sf__toolbar {
+  border-color: $brand-orange;
 }
 
 .shop-hero {
@@ -227,6 +263,8 @@ body.woocommerce-cart main {
 }
 
 .shop-hero::before {
+  @include overlay;
+
   left: 50%;
   transform: translateX(-50%);
   width: 100vw;
@@ -250,4 +288,9 @@ body.woocommerce-cart main {
   body.contact-us & {
     background-image: url('/wp-content/themes/ai-zippy-child/assets/images/contact-us.jpg');
   }
+}
+
+.shop-hero .wc-block-breadcrumbs,
+.shop-hero .woocommerce-breadcrumb {
+  opacity: 1;
 }

@@ -3,8 +3,9 @@
 
 .az-thankyou__footer,
 .az-thankyou__card {
-  @include background-gradient;
-  @include image-shadow;
+  // @include background-gradient;
+  // @include image-shadow;
+  @include box-shadow;
 }
 
 .az-thankyou__btn--primary {
@@ -33,5 +34,5 @@
 .az-thankyou__detail-block address,
 .az-thankyou__detail-block span,
 .az-thankyou__totals-row--discount {
-  color: $white;
+  color: $brand-brown;
 }

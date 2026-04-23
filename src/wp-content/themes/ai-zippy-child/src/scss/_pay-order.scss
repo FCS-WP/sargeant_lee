@@ -2,9 +2,11 @@
 @use "base" as *;
 
 .woocommerce-order-pay #payment {
-  @include background-gradient;
-  @include image-shadow;
+  // @include background-gradient;
+  // @include image-shadow;
+  @include box-shadow;
   border-radius: $border-radius;
+  background-color: $white;
 }
 
 .woocommerce-order-pay .wc_payment_method {
@@ -62,8 +64,10 @@
 }
 
 .woocommerce-order-pay table.shop_table {
-  @include background-gradient;
-  @include image-shadow;
+  @include box-shadow;
+  // @include background-gradient;
+  // @include image-shadow;
+  background-color: $white;
   border-radius: $border-radius;
   border: 0;
   padding: 16px;

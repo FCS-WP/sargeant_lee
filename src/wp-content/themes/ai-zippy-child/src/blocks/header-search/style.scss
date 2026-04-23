@@ -1,3 +1,6 @@
+@use "../../scss/variables" as *;
+@use "../../scss/base" as *;
+
 .wp-block-ai-zippy-child-header-search {
   display: inline-flex;
   align-items: center;
@@ -11,8 +14,12 @@
   padding: 0;
   border: 0;
   background: transparent;
-  color: var(--wp--preset--color--white, #ffffff);
+  color: $brand-white;
   cursor: pointer;
+
+  img {
+    @include filter-brown;
+  }
 }
 
 .ai-zippy-child-header-search__icon,
@@ -58,8 +65,8 @@
   width: 100%;
   min-height: 100vh;
   padding: 72px 32px 32px;
-  background: var(--wp--preset--color--black, #000000);
-  color: var(--wp--preset--color--white, #ffffff);
+  background: $brand-white;
+  color: $brand-brown;
   transition: transform 0.3s ease, opacity 0.3s ease;
   transform: translateY(0);
   opacity: 1;
@@ -72,14 +79,14 @@
 
 .ai-zippy-child-header-search__close {
   position: absolute;
-  top: 24px;
-  right: 24px;
+  top: 40px;
+  right: 40px;
   padding: 0;
   border: 0;
   background: transparent;
   color: inherit;
   font-family: var(--wp--preset--font-family--playfair-display);
-  font-size: 28px;
+  font-size: 42px;
   line-height: 1;
   cursor: pointer;
 }
@@ -101,38 +108,27 @@
 }
 
 .ai-zippy-child-header-search__input {
+  @include input;
+
   flex: 1;
   min-width: 0;
-  font-family: var(--wp--preset--font-family--playfair-display);
-  background-color: var(--wp--preset--color--black, #000000);
-  color: var(--wp--preset--color--white, #fff);
-  border: 1px solid var(--wp--preset--color--white, #fff);
-  font-size: var(--wp--preset--font-size--normal, 1rem);
-  padding: 11px 20px;
-  transition: color 0.3s ease, border-color 0.3s ease;
 }
 
 .ai-zippy-child-header-search__input:hover,
 .ai-zippy-child-header-search__input:focus {
-  border-color: var(--wp--preset--color--brand-orange, #ff7f24);
-  color: var(--wp--preset--color--brand-orange, #ff7f24);
+  border-color: $brand-brown;
+  color: $brand-brown;
   outline: none;
 }
 
 .ai-zippy-child-header-search__input::placeholder {
-  color: rgba(255, 255, 255, 0.75);
+  color: $brand-orange;
 }
 
 .ai-zippy-child-header-search__submit {
-  font-family: var(--wp--preset--font-family--playfair-display);
-  background-color: var(--wp--preset--color--brand-orange, #ff7f24);
-  color: var(--wp--preset--color--white, #fff);
-  font-size: var(--wp--preset--font-size--normal, 1rem);
-  cursor: pointer;
-  padding: 12px 30px;
-  font-weight: bold;
+  @include button-alt;
+
   border: 0;
-  transition: color 0.3s ease, background-color 0.3s ease;
 }
 
 .ai-zippy-child-header-search__submit:hover {

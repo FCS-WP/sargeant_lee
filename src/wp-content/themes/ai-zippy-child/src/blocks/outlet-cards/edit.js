@@ -194,23 +194,28 @@ export default function Edit({ attributes, setAttributes }) {
 							key={index}
 							className="oc__card"
 						>
-							{card.imageUrl && (
-								<img
-									className="oc__bg"
-									src={card.imageUrl}
-									alt=""
-									aria-hidden="true"
-								/>
-							)}
-							<div className="oc__overlay" />
-							<div className="oc__body">
-								{card.logoUrl
-									? <div className="oc__logo-wrap"><img src={card.logoUrl} alt="" className="oc__logo" /></div>
-									: <div className="oc__logo-placeholder" />
-								}
-								<h2 className="oc__heading" dangerouslySetInnerHTML={{ __html: card.heading.replace(/\n/g, "<br>") }} />
-								<span className="oc__btn">{card.linkLabel}</span>
-							</div>
+              <div
+                key={index}
+                className="oc__card__inner"
+              >
+                {card.imageUrl && (
+                  <img
+                    className="oc__bg"
+                    src={card.imageUrl}
+                    alt=""
+                    aria-hidden="true"
+                  />
+                )}
+                <div className="oc__overlay" />
+                <div className="oc__body">
+                  {card.logoUrl
+                    ? <div className="oc__logo-wrap"><img src={card.logoUrl} alt="" className="oc__logo" /></div>
+                    : <div className="oc__logo-placeholder" />
+                  }
+                  <h2 className="oc__heading" dangerouslySetInnerHTML={{ __html: card.heading.replace(/\n/g, "<br>") }} />
+                  <span className="oc__btn">{card.linkLabel}</span>
+                </div>
+              </div>
 						</div>
 					))}
 				</div>
